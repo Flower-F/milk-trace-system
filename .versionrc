@@ -2,15 +2,15 @@
   "types": [
     {
       "type": "feat",
-      "section": "Features"
+      "section": "Features✨"
     },
     {
       "type": "fix",
-      "section": "Bug Fixes"
+      "section": "Bug Fixes🐛"
     },
     {
       "type": "chore",
-      "section": "Config Change"
+      "section": "Config Change👷"
     },
     {
       "type": "docs",

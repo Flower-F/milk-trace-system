@@ -7,21 +7,25 @@
   },
   "eslint.alwaysShowStatus": true,
   "prettier.enable": false,
-  "css.validate": false,
-  "scss.validate": false,
-  "javascript.format.enable": false,
-  "typescript.format.enable": false,
-  "stylelint.validate": [
-    "css",
-    "scss"
-  ],
-  "eslint.validate": [
-    "typescript",
-    "javascript",
-    "typescriptreact",
-    "javascriptreact"
-  ],
   "[javascript]": {
-    "editor.defaultFormatter": "Wscats.eno"
-  }
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "cSpell.words": [
+    "douyinfe"
+  ]
 }

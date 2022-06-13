@@ -1,5 +1,4 @@
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+body[theme-mode="dark"] {
+  min-height: 100vh;
+  background-color: #000;
 }

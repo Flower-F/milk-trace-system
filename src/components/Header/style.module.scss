@@ -1,11 +1,15 @@
 .header {
-  position: relative;
-  height: 50px;
-  line-height: 50px;
+  position: sticky;
+  height: 40px;
 
   .button-group {
     position: absolute;
-    right: 8px;
+    right: 12px;
+    z-index: 1000;
+    padding: 0 10px;
+    margin-top: 15px;
+    background-color: rgba($color: #000, $alpha: 15%);
+    border-radius: 10px;
 
     :global(.semi-icon-default) {
       font-size: 25px;
@@ -13,7 +17,7 @@
     }
 
     .change-theme {
-      height: 50px;
+      height: 40px;
       margin-right: 4px;
       background-color: transparent;
       border: none;
@@ -26,6 +30,14 @@
       .sun {
         color: #fff;
       }
+    }
+  }
+}
+
+body[theme-mode="dark"] {
+  .header {
+    .button-group {
+      background-color: rgba($color: #fff, $alpha: 15%);
     }
   }
 }

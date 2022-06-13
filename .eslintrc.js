@@ -62,5 +62,15 @@ module.exports = {
         devDependencies: true,
       },
     ],
+    'no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      },
+    ],
+    'import/prefer-default-export': [
+      0,
+    ],
   },
 };

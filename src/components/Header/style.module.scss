@@ -1,0 +1,31 @@
+.header {
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+
+  .button-group {
+    position: absolute;
+    right: 8px;
+
+    :global(.semi-icon-default) {
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    .change-theme {
+      height: 50px;
+      margin-right: 4px;
+      background-color: transparent;
+      border: none;
+      outline: none;
+
+      .moon {
+        color: #000;
+      }
+
+      .sun {
+        color: #fff;
+      }
+    }
+  }
+}

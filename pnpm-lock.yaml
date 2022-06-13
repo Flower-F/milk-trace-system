@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@commitlint/cli': ^17.0.2
   '@commitlint/config-conventional': ^17.0.2
+  '@douyinfe/semi-icons': ^2.12.0
   '@douyinfe/semi-ui': ^2.12.0
   '@types/react': ^18.0.0
   '@types/react-dom': ^18.0.0
@@ -31,8 +32,10 @@ specifiers:
   stylelint-config-standard-scss: ^4.0.0
   typescript: ^4.6.3
   vite: ^2.9.9
+  vite-tsconfig-paths: ^3.5.0
 
 dependencies:
+  '@douyinfe/semi-icons': registry.npmmirror.com/@douyinfe/semi-icons/2.12.0_react@18.1.0
   '@douyinfe/semi-ui': registry.npmmirror.com/@douyinfe/semi-ui/2.12.0_zlkrlo2xsersbascmmsr65fm34
   normalize.css: registry.npmmirror.com/normalize.css/8.0.1
   react: registry.npmmirror.com/react/18.1.0
@@ -65,6 +68,7 @@ devDependencies:
   stylelint-config-standard-scss: registry.npmmirror.com/stylelint-config-standard-scss/4.0.0_stylelint@14.9.1
   typescript: registry.npmmirror.com/typescript/4.7.3
   vite: registry.npmmirror.com/vite/2.9.12_sass@1.52.3
+  vite-tsconfig-paths: registry.npmmirror.com/vite-tsconfig-paths/3.5.0_vite@2.9.12
 
 packages:
 
@@ -631,6 +635,12 @@ packages:
     dependencies:
       postcss: registry.npmmirror.com/postcss/8.4.14
       postcss-selector-parser: registry.npmmirror.com/postcss-selector-parser/6.0.10
+    dev: true
+
+  registry.npmmirror.com/@cush/relative/1.0.0:
+    resolution: {integrity: sha512-RpfLEtTlyIxeNPGKcokS+p3BZII/Q3bYxryFRglh5H3A3T8q9fsLYm72VYAMEOOIBLEa8o93kFLiBDUWKrwXZA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@cush/relative/-/relative-1.0.0.tgz}
+    name: '@cush/relative'
+    version: 1.0.0
     dev: true
 
   registry.npmmirror.com/@douyinfe/semi-animation-react/2.12.0_ef5jwxihqo6n7gxfmzogljlgcm:
@@ -3272,6 +3282,12 @@ packages:
       is-glob: registry.npmmirror.com/is-glob/4.0.3
     dev: true
 
+  registry.npmmirror.com/glob-regex/0.3.2:
+    resolution: {integrity: sha512-m5blUd3/OqDTWwzBBtWBPrGlAzatRywHameHeekAZyZrskYouOGdNB8T/q6JucucvJXtOuyHIn0/Yia7iDasDw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/glob-regex/-/glob-regex-0.3.2.tgz}
+    name: glob-regex
+    version: 0.3.2
+    dev: true
+
   registry.npmmirror.com/glob/7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/glob/-/glob-7.2.3.tgz}
     name: glob
@@ -3347,6 +3363,12 @@ packages:
     resolution: {integrity: sha512-xYfnw62CKG8nLkZBfWbhWwDw02CHty86jfPcc2cr3ZfeuK9ysoVPPEUxf21bAD/rWAgk52SuBrLJlefNy8mvFg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/globjoin/-/globjoin-0.1.4.tgz}
     name: globjoin
     version: 0.1.4
+    dev: true
+
+  registry.npmmirror.com/globrex/0.1.2:
+    resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/globrex/-/globrex-0.1.2.tgz}
+    name: globrex
+    version: 0.1.2
     dev: true
 
   registry.npmmirror.com/graceful-fs/4.2.10:
@@ -4975,6 +4997,17 @@ packages:
       picomatch: registry.npmmirror.com/picomatch/2.3.1
     dev: true
 
+  registry.npmmirror.com/recrawl-sync/2.2.2:
+    resolution: {integrity: sha512-E2sI4F25Fu2nrfV+KsnC7/qfk/spQIYXlonfQoS4rwxeNK5BjxnLPbWiRXHVXPwYBOTWtPX5765kTm/zJiL+LQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/recrawl-sync/-/recrawl-sync-2.2.2.tgz}
+    name: recrawl-sync
+    version: 2.2.2
+    dependencies:
+      '@cush/relative': registry.npmmirror.com/@cush/relative/1.0.0
+      glob-regex: registry.npmmirror.com/glob-regex/0.3.2
+      slash: registry.npmmirror.com/slash/3.0.0
+      tslib: registry.npmmirror.com/tslib/1.14.1
+    dev: true
+
   registry.npmmirror.com/redent/3.0.0:
     resolution: {integrity: sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/redent/-/redent-3.0.0.tgz}
     name: redent
@@ -5827,6 +5860,16 @@ packages:
       strip-bom: registry.npmmirror.com/strip-bom/3.0.0
     dev: true
 
+  registry.npmmirror.com/tsconfig-paths/4.0.0:
+    resolution: {integrity: sha512-SLBg2GBKlR6bVtMgJJlud/o3waplKtL7skmLkExomIiaAtLGtVsoXIqP3SYdjbcH9lq/KVv7pMZeCBpLYOit6Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tsconfig-paths/-/tsconfig-paths-4.0.0.tgz}
+    name: tsconfig-paths
+    version: 4.0.0
+    dependencies:
+      json5: registry.npmmirror.com/json5/2.2.1
+      minimist: registry.npmmirror.com/minimist/1.2.6
+      strip-bom: registry.npmmirror.com/strip-bom/3.0.0
+    dev: true
+
   registry.npmmirror.com/tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tslib/-/tslib-1.14.1.tgz}
     name: tslib
@@ -5978,6 +6021,23 @@ packages:
     dependencies:
       spdx-correct: registry.npmmirror.com/spdx-correct/3.1.1
       spdx-expression-parse: registry.npmmirror.com/spdx-expression-parse/3.0.1
+    dev: true
+
+  registry.npmmirror.com/vite-tsconfig-paths/3.5.0_vite@2.9.12:
+    resolution: {integrity: sha512-NKIubr7gXgh/3uniQaOytSg+aKWPrjquP6anAy+zCWEn6h9fB8z2/qdlfQrTgZWaXJ2pHVlllrSdRZltHn9P4g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vite-tsconfig-paths/-/vite-tsconfig-paths-3.5.0.tgz}
+    id: registry.npmmirror.com/vite-tsconfig-paths/3.5.0
+    name: vite-tsconfig-paths
+    version: 3.5.0
+    peerDependencies:
+      vite: '>2.0.0-0'
+    dependencies:
+      debug: registry.npmmirror.com/debug/4.3.4
+      globrex: registry.npmmirror.com/globrex/0.1.2
+      recrawl-sync: registry.npmmirror.com/recrawl-sync/2.2.2
+      tsconfig-paths: registry.npmmirror.com/tsconfig-paths/4.0.0
+      vite: registry.npmmirror.com/vite/2.9.12_sass@1.52.3
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   registry.npmmirror.com/vite/2.9.12_sass@1.52.3:

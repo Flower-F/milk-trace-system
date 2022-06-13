@@ -7,6 +7,16 @@
   },
   "eslint.alwaysShowStatus": true,
   "prettier.enable": false,
+  "stylelint.validate": [
+    "css",
+    "scss"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
   "[javascript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
@@ -26,6 +36,8 @@
     "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
   "cSpell.words": [
+    "borderless",
+    "camelcase",
     "douyinfe"
   ]
 }

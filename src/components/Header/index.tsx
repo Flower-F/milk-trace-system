@@ -7,7 +7,7 @@ import styles from './style.module.scss';
 const theme = getTheme();
 
 const Header = () => {
-  const [light, setLight] = useState(theme !== 'dark');
+  const [light, setLight] = useState(theme !== 'light' || theme === undefined);
 
   useEffect(() => {
     if (!light) {

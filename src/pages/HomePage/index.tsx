@@ -1,12 +1,11 @@
 import { getLoginStatus } from '@/utils';
-import LoginForm from '../../components/LoginForm';
+import LoginPage from '../LoginPage';
 
 const HomePage = () => {
-  if (!getLoginStatus()) {
+  const login = getLoginStatus();
+  if (!login) {
     return (
-      <div>
-        <LoginForm />
-      </div>
+      <LoginPage />
     );
   }
 

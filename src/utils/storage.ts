@@ -1,6 +1,8 @@
-import { THEME, TOKEN, LANGUAGE } from '../constants';
+import {
+  THEME, TOKEN, LANGUAGE, TOKEN_EXPIRED,
+} from '../constants';
 
-type TKey = typeof THEME | typeof TOKEN | typeof LANGUAGE;
+type TKey = typeof THEME | typeof TOKEN | typeof LANGUAGE | typeof TOKEN_EXPIRED;
 
 export const setItem = (key: TKey, value: string) => window.localStorage.setItem(key, value);
 

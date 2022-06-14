@@ -1,15 +1,20 @@
 import {
-  Layout, Nav, Breadcrumb, Avatar,
+  Layout, Nav, Avatar,
 } from '@douyinfe/semi-ui';
 import {
-  IconBytedanceLogo, IconHome, IconUser, IconEdit,
+  IconHome, IconUser, IconQrCode,
 } from '@douyinfe/semi-icons';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import styles from './style.module.scss';
 import { getLoginStatus } from '@/utils';
 import LoginPage from '@/pages/LoginPage';
 
 const MyLayout = () => {
+  const navigate = useNavigate();
+  const navigateToPage = (data: any) => {
+    navigate(`/admin/${data.itemKey.toLowerCase()}`);
+  };
+
   const login = getLoginStatus();
   if (!login) {
     return (
@@ -29,7 +34,7 @@ const MyLayout = () => {
           style={{ maxWidth: 200, height: '100%' }}
           items={[
             { itemKey: 'Home', text: '首页', icon: <IconHome size="large" /> },
-            { itemKey: 'Edit', text: '溯源码管理', icon: <IconEdit size="large" /> },
+            { itemKey: 'Trace', text: '溯源码管理', icon: <IconQrCode size="large" /> },
             { itemKey: 'User', text: '用户信息', icon: <IconUser size="large" /> },
           ]}
           header={{
@@ -39,6 +44,7 @@ const MyLayout = () => {
           footer={{
             collapseButton: true,
           }}
+          onClick={navigateToPage}
         />
       </Sider>
       <Layout>
@@ -58,30 +64,13 @@ const MyLayout = () => {
             backgroundColor: 'var(--semi-color-bg-0)',
           }}
         >
-          <Breadcrumb
-            style={{
-              marginBottom: '24px',
-            }}
-            routes={['首页', '当这个页面标题很长时需要省略', '上一页', '详情页']}
-          />
-          {/* <div
-            style={{
-              borderRadius: '10px',
-              border: '1px solid var(--semi-color-border)',
-              height: '470px',
-              padding: '32px',
-              color: 'var(--semi-color-text-0)',
-            }}
-          >
-            hello world
-          </div> */}
           <Outlet />
         </Content>
         <Footer
           style={{
             display: 'flex',
             justifyContent: 'space-between',
-            padding: '20px',
+            padding: '18px 15px',
             color: 'var(--semi-color-text-2)',
             backgroundColor: 'rgba(var(--semi-grey-0), 1)',
           }}
@@ -92,12 +81,8 @@ const MyLayout = () => {
               alignItems: 'center',
             }}
           >
-            <IconBytedanceLogo size="large" style={{ marginRight: '8px' }} />
-            <span>Copyright © 2019 ByteDance. All Rights Reserved. </span>
-          </span>
-          <span>
-            <span style={{ marginRight: '24px' }}>平台客服</span>
-            <span>反馈建议</span>
+            <span style={{ marginRight: 8 }}>特仑苏</span>
+            <span>CopyRight © 2006-2022 TELUNSU. All Rights Reserved.</span>
           </span>
         </Footer>
       </Layout>

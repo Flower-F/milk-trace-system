@@ -21,6 +21,8 @@ const Header = () => {
   useEffect(() => {
     if (pathname === '/') {
       navigate('/admin');
+    } else if (pathname === '/admin') {
+      navigate('/admin/home');
     }
   }, [pathname, navigate]);
 
@@ -36,10 +38,16 @@ const Header = () => {
     }
   };
 
+  const navigateToHome = () => {
+    if (pathname !== '/admin/home') {
+      navigate('/admin/home');
+    }
+  };
+
   return (
     <>
       <div className={styles.header}>
-        <div className={styles.logo}>
+        <div className={styles.logo} onClick={navigateToHome} onKeyDown={navigateToHome} role="button" tabIndex={0}>
           <img src="/logo.png" alt="logo" className={styles['logo-image']} />
           <span className={styles['logo-title']}>特仑苏</span>
         </div>

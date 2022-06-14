@@ -1,8 +1,8 @@
 import { Button, Form } from '@douyinfe/semi-ui';
 import md5 from 'md5';
 import { axiosInstance } from '@/request';
-import styles from './style.module.scss';
 import { login } from '@/utils';
+import styles from './style.module.scss';
 
 const LoginPage = () => {
   const { Option } = Form.Select;

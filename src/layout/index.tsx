@@ -1,13 +1,11 @@
+import { Layout, Nav } from '@douyinfe/semi-ui';
 import {
-  Layout, Nav, Avatar,
-} from '@douyinfe/semi-ui';
-import {
-  IconHome, IconUser, IconQrCode,
+  IconHome, IconUser, IconQrCode, IconSetting,
 } from '@douyinfe/semi-icons';
 import { Outlet, useNavigate } from 'react-router-dom';
-import styles from './style.module.scss';
 import { getLoginStatus } from '@/utils';
 import LoginPage from '@/pages/LoginPage';
+import styles from './style.module.scss';
 
 const MyLayout = () => {
   const navigate = useNavigate();
@@ -22,9 +20,7 @@ const MyLayout = () => {
     );
   }
 
-  const {
-    Header, Footer, Sider, Content,
-  } = Layout;
+  const { Footer, Sider, Content } = Layout;
 
   return (
     <Layout className={styles['layout-container']}>
@@ -36,6 +32,7 @@ const MyLayout = () => {
             { itemKey: 'Home', text: '首页', icon: <IconHome size="large" /> },
             { itemKey: 'Trace', text: '溯源码管理', icon: <IconQrCode size="large" /> },
             { itemKey: 'User', text: '用户信息', icon: <IconUser size="large" /> },
+            { itemKey: 'Setting', text: '设置', icon: <IconSetting size="large" /> },
           ]}
           header={{
             logo: <img src="/qr-code.png" alt="logo" />,
@@ -48,16 +45,6 @@ const MyLayout = () => {
         />
       </Sider>
       <Layout>
-        <Header style={{ backgroundColor: 'var(--semi-color-bg-1)' }}>
-          <Nav
-            mode="horizontal"
-            footer={(
-              <Avatar color="orange" size="small">
-                YJ
-              </Avatar>
-            )}
-          />
-        </Header>
         <Content
           style={{
             padding: '24px',

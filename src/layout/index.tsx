@@ -2,15 +2,34 @@ import { Layout, Nav } from '@douyinfe/semi-ui';
 import {
   IconHome, IconUser, IconQrCode, IconSetting,
 } from '@douyinfe/semi-icons';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { getLoginStatus } from '@/utils';
 import LoginPage from '@/pages/LoginPage';
 import styles from './style.module.scss';
+
+const itemList = [
+  { itemKey: 'Home', text: '首页', icon: <IconHome size="large" /> },
+  { itemKey: 'Trace', text: '溯源码管理', icon: <IconQrCode size="large" /> },
+  { itemKey: 'User', text: '用户信息', icon: <IconUser size="large" /> },
+  { itemKey: 'Setting', text: '设置', icon: <IconSetting size="large" /> },
+];
 
 const MyLayout = () => {
   const navigate = useNavigate();
   const navigateToPage = (data: any) => {
     navigate(`/admin/${data.itemKey.toLowerCase()}`);
+  };
+
+  const { pathname } = useLocation();
+
+  const getDefaultKey = () => {
+    for (let i = 0; i < itemList.length; i += 1) {
+      if (pathname.includes(itemList[i].itemKey.toLowerCase())) {
+        return itemList[i].itemKey;
+      }
+    }
+
+    return '/Home';
   };
 
   const login = getLoginStatus();
@@ -26,14 +45,9 @@ const MyLayout = () => {
     <Layout className={styles['layout-container']}>
       <Sider>
         <Nav
-          defaultSelectedKeys={['Home']}
+          defaultSelectedKeys={[getDefaultKey()]}
           style={{ maxWidth: 200, height: '100%' }}
-          items={[
-            { itemKey: 'Home', text: '首页', icon: <IconHome size="large" /> },
-            { itemKey: 'Trace', text: '溯源码管理', icon: <IconQrCode size="large" /> },
-            { itemKey: 'User', text: '用户信息', icon: <IconUser size="large" /> },
-            { itemKey: 'Setting', text: '设置', icon: <IconSetting size="large" /> },
-          ]}
+          items={itemList}
           header={{
             logo: <img src="/qr-code.png" alt="logo" />,
             text: '特仑苏牛奶溯源',

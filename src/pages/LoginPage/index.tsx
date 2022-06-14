@@ -5,6 +5,8 @@ import styles from './style.module.scss';
 import { login } from '@/utils';
 
 const LoginPage = () => {
+  const { Option } = Form.Select;
+
   const handleSubmit = (values: Record<string, any>) => {
     axiosInstance.post('/login', {
       username: values.username,
@@ -25,6 +27,18 @@ const LoginPage = () => {
       <div className={styles['login-form']}>
         <h3 className={styles.title}>特仑苏牛奶溯源系统</h3>
         <Form onSubmit={(values) => handleSubmit(values)} style={{ width: 400 }}>
+          <Form.Select
+            field="role"
+            label="角色"
+            placeholder="请选择您的角色"
+            style={{ width: '100%' }}
+            rules={[{ required: true, message: '角色为必选项' }]}
+          >
+            <Option value={0}>牧场</Option>
+            <Option value={1}>加工厂</Option>
+            <Option value={2}>储运商</Option>
+            <Option value={3}>销售商</Option>
+          </Form.Select>
           <Form.Input
             field="username"
             label="用户名"

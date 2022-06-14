@@ -1,7 +1,8 @@
 import { THEME } from '@/constants';
 import { getItem, setItem } from './storage';
 
-export const getTheme = () => getItem(THEME) || 'dark';
+export const getTheme = () => getItem(THEME) || 'light';
 
-type TTheme = 'dark' | 'light';
+export type TTheme = 'dark' | 'light';
+
 export const setTheme = (theme: TTheme) => setItem(THEME, theme);

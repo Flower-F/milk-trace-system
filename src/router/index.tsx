@@ -11,7 +11,6 @@ const MyRouter = () => (
   <Routes>
     <Route path="/" element={<Header />}>
       <Route index element={<HomePage />} />
-      <Route path="home" element={<HomePage />} />
       <Route path="search" element={(<Suspense><SearchPage /></Suspense>)} />
       <Route path="trace" element={(<Suspense><TracePage /></Suspense>)} />
       <Route path="*" element={<Suspense><NotFoundPage /></Suspense>} />

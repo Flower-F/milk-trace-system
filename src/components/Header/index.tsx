@@ -28,17 +28,23 @@ const Header = () => {
   };
 
   return (
-    <div className={styles.header}>
-      <div className={styles['button-group']}>
-        <button onClick={switchTheme} type="button" className={styles['change-theme']}>
-          {light ? <IconMoon className={styles.moon} /> : <IconSun className={styles.sun} />}
-        </button>
-        <a href="https://github.com/Flower-F/milk-trace-system" target="_blank" rel="noreferrer">
-          <IconGithubLogo />
-        </a>
+    <>
+      <div className={styles.header}>
+        <div className={styles.logo}>
+          <img src="/logo.png" alt="logo" className={styles['logo-image']} />
+          <span className={styles['logo-title']}>特仑苏</span>
+        </div>
+        <div className={styles['button-group']}>
+          <button onClick={switchTheme} type="button" className={styles['change-theme']}>
+            {light ? <IconMoon className={styles.moon} /> : <IconSun className={styles.sun} />}
+          </button>
+          <a href="https://github.com/Flower-F/milk-trace-system" target="_blank" rel="noreferrer">
+            <IconGithubLogo />
+          </a>
+        </div>
       </div>
       <Outlet />
-    </div>
+    </>
   );
 };
 

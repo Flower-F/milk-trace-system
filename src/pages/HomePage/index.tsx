@@ -29,23 +29,25 @@ const HomePage = () => {
     <div className={styles['home-container']}>
       <div className={styles['flex-box']}>
         <div className={styles.left}>
-          <Carousel className={styles.carousel} arrowType="always" theme="dark" showArrow autoPlay>
+          <Carousel className={styles.carousel} arrowType="always" theme="dark" speed={500} showArrow autoPlay>
             {
-        imgList.map((item) => (
-          <div key={item.id} style={{ background: item.background }}>
-            <Space vertical align="start" spacing="medium" className={styles.space}>
-              <img src="/telunsu.png" alt="logo" className={styles.logo} />
-              <Title heading={2} className={styles.black}>{textList[item.id][0]}</Title>
-              <Space vertical align="start">
-                <Paragraph className={styles.black}>{textList[item.id][1]}</Paragraph>
-                <Paragraph className={styles.black}>{textList[item.id][2]}</Paragraph>
-              </Space>
-            </Space>
-          </div>
-        ))
-      }
+              imgList.map((item) => (
+                <div key={item.id} style={{ background: item.background }}>
+                  <Space vertical align="start" spacing="medium" className={styles.space}>
+                    <img src="/telunsu.png" alt="logo" className={styles.logo} />
+                    <Title heading={2} className={styles.black}>{textList[item.id][0]}</Title>
+                    <Space vertical align="start">
+                      <Paragraph className={styles.black}>{textList[item.id][1]}</Paragraph>
+                      <Paragraph className={styles.black}>{textList[item.id][2]}</Paragraph>
+                    </Space>
+                  </Space>
+                </div>
+              ))
+            }
           </Carousel>
-          <img src="/cow.png" alt="奶牛" className={styles.cow} />
+          <div className={styles.cow}>
+            <img src="/cow.png" alt="奶牛" />
+          </div>
         </div>
         <div className={styles.right}>
           <img src="/cow-2.png" alt="奶牛" />

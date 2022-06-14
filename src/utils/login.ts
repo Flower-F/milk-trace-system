@@ -26,4 +26,7 @@ export const login = (token: string, tokenExpired: string) => {
   setItem(TOKEN_EXPIRED, tokenExpired);
 };
 
-export const logout = () => clearStorage();
+export const logout = () => {
+  clearStorage();
+  window.location.reload();
+};

@@ -46,7 +46,7 @@ const MyLayout = () => {
       <Sider>
         <Nav
           defaultSelectedKeys={[getDefaultKey()]}
-          style={{ maxWidth: 200, height: '100%' }}
+          className={styles.nav}
           items={itemList}
           header={{
             logo: <img src="/qr-code.png" alt="logo" />,
@@ -59,32 +59,17 @@ const MyLayout = () => {
         />
       </Sider>
       <Layout>
-        <Content
-          style={{
-            padding: '24px',
-            backgroundColor: 'var(--semi-color-bg-0)',
-          }}
-        >
+        <Content className={styles.content}>
           <Outlet />
         </Content>
         <Footer
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: '18px 15px',
-            color: 'var(--semi-color-text-2)',
-            backgroundColor: 'rgba(var(--semi-grey-0), 1)',
-          }}
+          style={{ backgroundColor: 'rgba(var(--semi-grey-0), 1)' }}
+          className={styles.footer}
         >
-          <span
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
+          <div>
             <span style={{ marginRight: 8 }}>特仑苏</span>
             <span>CopyRight © 2006-2022 TELUNSU. All Rights Reserved.</span>
-          </span>
+          </div>
         </Footer>
       </Layout>
     </Layout>

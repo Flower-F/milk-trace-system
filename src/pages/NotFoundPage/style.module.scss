@@ -1,0 +1,11 @@
+.not-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 60px);
+}
+
+.not-icon {
+  width: 200px;
+  height: 200px;
+}

@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { IconGithubLogo, IconMoon, IconSun } from '@douyinfe/semi-icons';
 import { useEffect, useState } from 'react';
 import { getTheme, setTheme } from '@/utils';
@@ -14,6 +14,15 @@ const Header = () => {
       document.body.setAttribute('theme-mode', 'dark');
     }
   }, []);
+
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (pathname === '/') {
+      navigate('/admin');
+    }
+  }, [pathname, navigate]);
 
   const switchTheme = () => {
     if (document.body.hasAttribute('theme-mode')) {

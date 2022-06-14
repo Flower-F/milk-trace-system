@@ -5,13 +5,19 @@ import HomePage from '../pages/HomePage';
 
 const SearchPage = lazy(() => import('../pages/SearchPage'));
 const TracePage = lazy(() => import('../pages/TracePage'));
+const TraceManagementPage = lazy(() => import('../pages/TraceManagementPage'));
+const UserPage = lazy(() => import('../pages/UserPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 const MyRouter = () => (
   <Routes>
     <Route path="/" element={<Header />}>
       <Route index element={<HomePage />} />
-      <Route path="search" element={(<Suspense><SearchPage /></Suspense>)} />
+      <Route path="admin" element={<HomePage />}>
+        <Route path="search" element={(<Suspense><SearchPage /></Suspense>)} />
+        <Route path="user" element={(<Suspense><UserPage /></Suspense>)} />
+        <Route path="trace" element={(<Suspense><TraceManagementPage /></Suspense>)} />
+      </Route>
       <Route path="trace" element={(<Suspense><TracePage /></Suspense>)} />
       <Route path="*" element={<Suspense><NotFoundPage /></Suspense>} />
     </Route>

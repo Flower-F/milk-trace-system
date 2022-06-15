@@ -14,6 +14,7 @@ const CompanyPage = () => {
   const [edit, setEdit] = useState(false);
 
   const handleSubmit = (values: any) => {
+    // eslint-disable-next-line no-console
     console.log(values);
     Toast.info('表单已提交');
   };

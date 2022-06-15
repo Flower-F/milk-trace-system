@@ -7,8 +7,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "prepare": "husky install",
-    "eslint": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
-    "stylelint": "stylelint --fix src/**/*.{css,scss}",
+    "eslint": "eslint src --ext .js,.jsx,.ts,.tsx --cache --fix",
+    "stylelint": "stylelint --fix --cache src/**/*.{css,scss}",
     "lint": "pnpm eslint && pnpm stylelint",
     "release": "standard-version"
   },

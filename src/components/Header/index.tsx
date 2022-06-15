@@ -18,14 +18,6 @@ const Header = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (pathname === '/') {
-      navigate('/admin');
-    } else if (pathname === '/admin') {
-      navigate('/admin/home');
-    }
-  }, [pathname, navigate]);
-
   const switchTheme = () => {
     if (document.body.hasAttribute('theme-mode')) {
       document.body.removeAttribute('theme-mode');
@@ -37,6 +29,12 @@ const Header = () => {
       setLight(false);
     }
   };
+
+  useEffect(() => {
+    if (pathname === '/' || pathname === '/admin' || pathname === '/admin/') {
+      navigate('/admin/home');
+    }
+  }, [pathname, navigate]);
 
   const navigateToHome = () => {
     if (pathname !== '/admin/home') {

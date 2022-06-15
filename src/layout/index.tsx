@@ -1,6 +1,6 @@
 import { Layout, Nav } from '@douyinfe/semi-ui';
 import {
-  IconHome, IconUser, IconQrCode, IconSetting,
+  IconHome, IconUser, IconSetting, IconEdit,
 } from '@douyinfe/semi-icons';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { getLoginStatus } from '@/utils';
@@ -9,8 +9,8 @@ import styles from './style.module.scss';
 
 const itemList = [
   { itemKey: 'Home', text: '首页', icon: <IconHome size="large" /> },
-  { itemKey: 'Trace', text: '溯源码管理', icon: <IconQrCode size="large" /> },
-  { itemKey: 'User', text: '用户信息', icon: <IconUser size="large" /> },
+  { itemKey: 'Message', text: '信息管理', icon: <IconEdit size="large" /> },
+  { itemKey: 'Company', text: '公司介绍', icon: <IconUser size="large" /> },
   { itemKey: 'Setting', text: '设置', icon: <IconSetting size="large" /> },
 ];
 

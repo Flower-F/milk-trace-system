@@ -1,0 +1,22 @@
+.block {
+  width: 400px;
+  padding: 12px 0;
+  line-height: 20px;
+
+  .title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--semi-color-text-0);
+  }
+
+  .content {
+    height: 30px;
+    padding: 4px 12px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 30px;
+    color: var(--semi-color-text-0);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

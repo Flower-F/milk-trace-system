@@ -24,7 +24,7 @@
     .logo-title {
       font-size: 20px;
       font-weight: 800;
-      color: rgb(84 169 255);
+      color: #0064fa;
     }
   }
 
@@ -58,6 +58,12 @@
 
 body[theme-mode="dark"] {
   .header {
+    .logo {
+      .logo-title {
+        color: #54a9ff;
+      }
+    }
+
     .button-group {
       background-color: rgba($color: #fff, $alpha: 15%);
     }

@@ -53,7 +53,7 @@ const LoginPage = () => {
             rules={[{ required: true, message: '密码未填写' }]}
           />
           <div className={styles['login-button']}>
-            <Button htmlType="submit" type="tertiary">登录</Button>
+            <Button htmlType="submit" type="secondary">登录</Button>
           </div>
         </Form>
       </div>

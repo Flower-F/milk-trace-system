@@ -1,25 +1,12 @@
+import { useCallback } from 'react';
 import { Button, Form } from '@douyinfe/semi-ui';
-import md5 from 'md5';
-import { axiosInstance } from '@/request';
-import { login } from '@/utils';
+import { loginApi } from '@/api';
 import styles from './style.module.scss';
 
 const LoginPage = () => {
   const { Option } = Form.Select;
 
-  const handleSubmit = (values: Record<string, any>) => {
-    axiosInstance.post('/login', {
-      username: values.username,
-      password: md5(values.password),
-    }).then((res) => {
-      const { data } = res;
-      if (data.code === 200) {
-        const { token, expiredAt } = data.data;
-        login(token, expiredAt);
-        window.location.reload();
-      }
-    });
-  };
+  const handleSubmit = useCallback((values: Record<string, any>) => loginApi(values), []);
 
   return (
     <div className={styles['login-container']}>

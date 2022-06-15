@@ -1,10 +1,10 @@
 import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
-import baseURL from './url';
+import { BASE_URL } from '@/constants';
 
 // 配置 axios 拦截器，防止多次重复请求
 const axiosInstance = axios.create({
-  baseURL,
+  baseURL: BASE_URL,
 });
 
 // 存储所有请求的 key

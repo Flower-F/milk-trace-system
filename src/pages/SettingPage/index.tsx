@@ -1,11 +1,16 @@
 import { IconLink } from '@douyinfe/semi-icons';
 import { Button, Typography } from '@douyinfe/semi-ui';
+import { useCallback } from 'react';
 import { useTokenStore } from '@/store';
 import styles from './style.module.scss';
 
 const SettingPage = () => {
   const { Paragraph, Text } = Typography;
   const { logoutAction } = useTokenStore();
+
+  const logout = useCallback(() => {
+    logoutAction();
+  }, []);
 
   return (
     <div className={styles['setting-container']}>
@@ -24,7 +29,7 @@ const SettingPage = () => {
           <Text link={{ href: 'http://www.telunsu.net/', target: '_blank' }} icon={<IconLink />} underline>了解更多关于特仑苏的咨询</Text>
         </div>
         <div className={styles.button}>
-          <Button type="danger" size="large" onClick={logoutAction}>退出登录</Button>
+          <Button type="danger" size="large" onClick={logout}>退出登录</Button>
         </div>
       </div>
     </div>

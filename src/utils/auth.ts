@@ -1,6 +1,6 @@
 import { TOKEN_EXPIRED } from '@/constants';
 import { useTokenStore } from '@/store';
-import { clearStorage, getItem, setItem } from './storage';
+import { clearItems, getItem, setItem } from './storage';
 
 export const getTokenExpired = () => getItem(TOKEN_EXPIRED) || '';
 
@@ -8,8 +8,8 @@ export const setTokenExpired = (tokenExpired: string) => setItem(TOKEN_EXPIRED, 
 
 export const isTimeout = () => {
   const tokenExpired = getTokenExpired();
-  const currentTime = new Date().getTime();
-  const expiredTime = new Date(tokenExpired).getTime();
+  const currentTime = new Date();
+  const expiredTime = new Date(tokenExpired);
 
   if (expiredTime && currentTime <= expiredTime) {
     return false;
@@ -28,7 +28,7 @@ export const getLoginStatus = () => {
   }
 
   if (!login) {
-    clearStorage();
+    clearItems();
   }
 
   return login;

@@ -1,19 +1,19 @@
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { IconGithubLogo, IconMoon, IconSun } from '@douyinfe/semi-icons';
-import { useEffect, useState } from 'react';
-import { getLoginStatus, getTheme, setTheme } from '@/utils';
+import { useEffect } from 'react';
+import { getLoginStatus } from '@/utils';
+import { useThemeStore } from '@/store/theme';
 import styles from './style.module.scss';
 
-const theme = getTheme();
-
 const Header = () => {
-  const [light, setLight] = useState(theme === 'light' || theme === undefined);
+  const { setTheme, getTheme } = useThemeStore();
+  const theme = getTheme();
 
   useEffect(() => {
-    if (!light) {
+    if (theme === 'dark') {
       document.body.setAttribute('theme-mode', 'dark');
     }
-  }, []);
+  }, [theme]);
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -22,23 +22,21 @@ const Header = () => {
     if (document.body.hasAttribute('theme-mode')) {
       document.body.removeAttribute('theme-mode');
       setTheme('light');
-      setLight(true);
     } else {
       document.body.setAttribute('theme-mode', 'dark');
       setTheme('dark');
-      setLight(false);
     }
   };
 
-  const login = getLoginStatus();
+  const loginStatus = getLoginStatus();
 
   useEffect(() => {
-    if (!login) {
+    if (!loginStatus) {
       navigate('/login');
     } else if (pathname === '/' || pathname === '/admin' || pathname === '/admin/') {
       navigate('/admin/home');
     }
-  }, [pathname, navigate, login]);
+  }, [pathname, loginStatus]);
 
   const navigateToHome = () => {
     if (pathname !== '/admin/home' && pathname !== '/login') {
@@ -55,7 +53,7 @@ const Header = () => {
         </div>
         <div className={styles['button-group']}>
           <button onClick={switchTheme} type="button" className={styles['change-theme']}>
-            {light ? <IconMoon className={styles.moon} /> : <IconSun className={styles.sun} />}
+            {theme === 'dark' ? <IconMoon /> : <IconSun /> }
           </button>
           <a href="https://github.com/Flower-F/milk-trace-system" target="_blank" rel="noreferrer">
             <IconGithubLogo />

@@ -1,9 +1,9 @@
 import { useCallback, useEffect } from 'react';
 import { Button, Form } from '@douyinfe/semi-ui';
 import { useNavigate } from 'react-router-dom';
-import styles from './style.module.scss';
 import { useTokenStore } from '@/store';
 import { getLoginStatus } from '@/utils';
+import styles from './style.module.scss';
 
 const LoginPage = () => {
   const { Option } = Form.Select;
@@ -15,13 +15,13 @@ const LoginPage = () => {
   }, []);
 
   const navigate = useNavigate();
-  const login = getLoginStatus();
+  const loginStatus = getLoginStatus();
 
   useEffect(() => {
-    if (login) {
+    if (loginStatus) {
       navigate('/admin');
     }
-  }, [navigate, login]);
+  }, [navigate, loginStatus]);
 
   return (
     <div className={styles['login-container']}>

@@ -1,9 +1,8 @@
 import axios from 'axios';
 import { BASE_URL, TOKEN } from '@/constants';
 import { isTimeout } from './auth';
-import { clearStorage, getItem } from './storage';
+import { clearItems, getItem } from './storage';
 
-// 配置 axios 拦截器
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
 });
@@ -27,7 +26,7 @@ axiosInstance.interceptors.request.use(
 
     if (token) {
       if (isTimeout()) {
-        clearStorage();
+        clearItems();
         window.location.pathname = '/login';
         return Promise.reject(new Error('token 已失效'));
       }

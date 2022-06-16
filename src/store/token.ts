@@ -2,17 +2,17 @@ import { atom, useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import { ERole, loginApi } from '@/api';
 import {
-  clearStorage, getItem, setItem, setTokenExpired,
+  clearItems, getItem, setItem, setTokenExpired,
 } from '@/utils';
 import { TOKEN } from '@/constants';
 
 const initialToken = atom({
   key: 'token',
-  default: '',
+  default: window.localStorage.getItem(TOKEN) || '',
 });
 
 export const useTokenStore = () => {
-  const [token, setToken] = useRecoilState(initialToken);
+  const [token, setRecoilToken] = useRecoilState(initialToken);
   const navigate = useNavigate();
 
   const loginAction = (username: string, password: string, role: ERole) => {
@@ -21,7 +21,7 @@ export const useTokenStore = () => {
       password,
       role,
     ).then((data) => {
-      setToken(data.token);
+      setRecoilToken(data.token);
       setTokenExpired(data.expiredAt);
       setItem(TOKEN, data.token);
     }).finally(() => {
@@ -30,12 +30,12 @@ export const useTokenStore = () => {
   };
 
   const logoutAction = () => {
-    setToken('');
-    clearStorage();
+    setRecoilToken('');
+    clearItems();
     navigate('/login');
   };
 
-  const getToken = () => token || getItem(TOKEN);
+  const getToken = () => token || getItem(TOKEN) || '';
 
   return {
     getToken,

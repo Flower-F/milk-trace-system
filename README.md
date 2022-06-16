@@ -1,7 +1,9 @@
 # Milk Trace System
 
-- vite
-- react + semi-design
-- eslint + stylelint + editorconfig
-- commitlint + husky + lint-staged
-- standard-version
+- Vite
+- React + Recoil
+- TypeScript
+- Semi-Design
+- ESLint + StyleLint + EditorConfig
+- CommitLint + Husky + Lint-Staged
+- Standard-Version

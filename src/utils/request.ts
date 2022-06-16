@@ -1,67 +1,44 @@
-import axios, { AxiosRequestConfig } from 'axios';
-import qs from 'qs';
-import { BASE_URL } from '@/constants';
+import axios from 'axios';
+import { BASE_URL, TOKEN } from '@/constants';
+import { isTimeout } from './auth';
+import { clearStorage, getItem } from './storage';
 
-// 配置 axios 拦截器，防止多次重复请求
+// 配置 axios 拦截器
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
 });
 
-// 存储所有请求的 key
-const requestList = new Map();
-
-// 为每一个请求生成一个独立的 key
-function generateKey(config: AxiosRequestConfig) {
-  const {
-    method, url, params, data,
-  } = config;
-  return [method, url, qs.stringify(params), qs.stringify(data)].join('&');
-}
-
-// 添加请求
-function addRequest(config: AxiosRequestConfig) {
-  const requestKey = generateKey(config);
-  // console.log(requestKey);
-  // eslint-disable-next-line no-param-reassign
-  config.cancelToken = config.cancelToken
-    || new axios.CancelToken((cancel) => {
-      if (!requestList.has(requestKey)) {
-        requestList.set(requestKey, cancel);
-      }
-    });
-}
-
-// 删除请求
-function removeRequest(config: AxiosRequestConfig) {
-  const requestKey = generateKey(config);
-  if (requestList.has(requestKey)) {
-    const cancel = requestList.get(requestKey);
-    cancel(requestKey);
-    requestList.delete(requestKey);
-  }
-}
-
-axiosInstance.interceptors.request.use(
-  (config) => {
-    removeRequest(config); // 检查是否存在重复请求，若存在则取消已发的请求
-    addRequest(config); // 把当前请求添加到请求列表中
-    return config;
-  },
-  (error) => Promise.reject(error),
-);
-
+// 响应拦截器
 axiosInstance.interceptors.response.use(
   (response) => {
-    removeRequest(response.config); // 从请求列表中移除请求
-    return response;
-  },
-  (error) => {
-    removeRequest(error.config || {}); // 从请求列表中移除请求
-    if (axios.isCancel(error)) {
-      // console.log("已取消的重复请求：" + error.message);
+    const { success, data, message } = response.data;
+    if (success) {
+      return data;
     }
-    return Promise.reject(error);
+    return Promise.reject(new Error(message));
   },
+  (error) => Promise.reject(new Error(error)),
 );
 
-export { axiosInstance };
+// 请求拦截器
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = getItem(TOKEN);
+
+    if (token) {
+      if (isTimeout()) {
+        clearStorage();
+        window.location.pathname = '/login';
+        return Promise.reject(new Error('token 已失效'));
+      }
+      if (config.headers) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+    }
+
+    return config;
+  },
+  (error) => Promise.reject(new Error(error)),
+);
+
+export { axiosInstance as request };

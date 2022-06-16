@@ -9,6 +9,7 @@ a {
 }
 
 body {
+  overflow-x: hidden;
   font-family:
     Inter,
     -apple-system,
@@ -33,25 +34,21 @@ body[theme-mode="dark"] {
 }
 
 ::-webkit-scrollbar {
-  /* 滚动条整体样式 */
   width: 10px;
-
-  /* 高宽分别对应横竖滚动条的尺寸 */
-  height: 1px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #535353;
-
-  /* 滚动条里面小方块 */
-  border-radius: 10px;
-  box-shadow: inset 0 0 5px #00152a;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #ededed;
-  border-radius: 10px;
+  background: #eee;
+  box-shadow: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);
+}
 
-  /* 滚动条里面轨道 */
-  box-shadow: inset 0 0 5px rgb(0 0 0 / 20%);
+// linear-gradient(90deg, #fc466b 0%, #3f5efb 100%)
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #48c6ef 0%, #6f86d6 100%);
+  box-shadow: inset 0 0 1px 1px #5c6670;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(90deg, #48c6ef 0%, #6f86d6 100%);
 }

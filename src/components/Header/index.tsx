@@ -1,7 +1,7 @@
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { IconGithubLogo, IconMoon, IconSun } from '@douyinfe/semi-icons';
 import { useEffect, useState } from 'react';
-import { getTheme, setTheme } from '@/utils';
+import { getLoginStatus, getTheme, setTheme } from '@/utils';
 import styles from './style.module.scss';
 
 const theme = getTheme();
@@ -30,14 +30,18 @@ const Header = () => {
     }
   };
 
+  const login = getLoginStatus();
+
   useEffect(() => {
-    if (pathname === '/' || pathname === '/admin' || pathname === '/admin/') {
+    if (!login) {
+      navigate('/login');
+    } else if (pathname === '/' || pathname === '/admin' || pathname === '/admin/') {
       navigate('/admin/home');
     }
-  }, [pathname, navigate]);
+  }, [pathname, navigate, login]);
 
   const navigateToHome = () => {
-    if (pathname !== '/admin/home') {
+    if (pathname !== '/admin/home' && pathname !== '/login') {
       navigate('/admin/home');
     }
   };

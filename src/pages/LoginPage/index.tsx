@@ -1,12 +1,27 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { Button, Form } from '@douyinfe/semi-ui';
-import { loginApi } from '@/api';
+import { useNavigate } from 'react-router-dom';
 import styles from './style.module.scss';
+import { useTokenStore } from '@/store';
+import { getLoginStatus } from '@/utils';
 
 const LoginPage = () => {
   const { Option } = Form.Select;
 
-  const handleSubmit = useCallback((values: Record<string, any>) => loginApi(values), []);
+  const { loginAction } = useTokenStore();
+
+  const handleSubmit = useCallback((values: Record<string, any>) => {
+    loginAction(values.username, values.password, values.role);
+  }, []);
+
+  const navigate = useNavigate();
+  const login = getLoginStatus();
+
+  useEffect(() => {
+    if (login) {
+      navigate('/admin');
+    }
+  }, [navigate, login]);
 
   return (
     <div className={styles['login-container']}>

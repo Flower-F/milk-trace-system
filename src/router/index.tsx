@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Layout from '@/layout';
 
 const HomePage = lazy(() => import('@/pages/HomePage'));
+const LoginPage = lazy(() => import('@/pages/LoginPage'));
 const TracePage = lazy(() => import('@/pages/TracePage'));
 const MessagePage = lazy(() => import('@/pages/MessagePage'));
 const CompanyPage = lazy(() => import('@/pages/CompanyPage'));
@@ -13,6 +14,7 @@ const SettingPage = lazy(() => import('@/pages/SettingPage'));
 const MyRouter = () => (
   <Routes>
     <Route path="/" element={<Header />}>
+      <Route path="login" element={(<Suspense><LoginPage /></Suspense>)} />
       <Route path="admin" element={<Layout />}>
         <Route path="home" element={<Suspense><HomePage /></Suspense>} />
         <Route path="company" element={(<Suspense><CompanyPage /></Suspense>)} />

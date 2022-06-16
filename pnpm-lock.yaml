@@ -30,6 +30,7 @@ specifiers:
   react: ^18.0.0
   react-dom: ^18.0.0
   react-router-dom: ^6.3.0
+  recoil: ^0.7.3
   sass: ^1.52.3
   standard-version: ^9.5.0
   stylelint: ^14.9.1
@@ -51,6 +52,7 @@ dependencies:
   react: registry.npmmirror.com/react/18.1.0
   react-dom: registry.npmmirror.com/react-dom/18.1.0_react@18.1.0
   react-router-dom: registry.npmmirror.com/react-router-dom/6.3.0_ef5jwxihqo6n7gxfmzogljlgcm
+  recoil: registry.npmmirror.com/recoil/0.7.3_ef5jwxihqo6n7gxfmzogljlgcm
 
 devDependencies:
   '@commitlint/cli': registry.npmmirror.com/@commitlint/cli/17.0.2
@@ -3466,6 +3468,12 @@ packages:
     version: 4.2.10
     dev: true
 
+  registry.npmmirror.com/hamt_plus/1.0.2:
+    resolution: {integrity: sha512-t2JXKaehnMb9paaYA7J0BX8QQAY8lwfQ9Gjf4pg/mk4krt+cmwmU652HOoWonf+7+EQV97ARPMhhVgU1ra2GhA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/hamt_plus/-/hamt_plus-1.0.2.tgz}
+    name: hamt_plus
+    version: 1.0.2
+    dev: false
+
   registry.npmmirror.com/handlebars/4.7.7:
     resolution: {integrity: sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/handlebars/-/handlebars-4.7.7.tgz}
     name: handlebars
@@ -5123,6 +5131,26 @@ packages:
     dependencies:
       picomatch: registry.npmmirror.com/picomatch/2.3.1
     dev: true
+
+  registry.npmmirror.com/recoil/0.7.3_ef5jwxihqo6n7gxfmzogljlgcm:
+    resolution: {integrity: sha512-WaPppk3Hz5/V9nOVmu1X/o3cJyf/rLXw/YsEENvMzEDk+LKqMiGfFgZ3Gg51TKWccpCZCyrSBXn2O4L1E2WDPQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/recoil/-/recoil-0.7.3.tgz}
+    id: registry.npmmirror.com/recoil/0.7.3
+    name: recoil
+    version: 0.7.3
+    peerDependencies:
+      react: '>=16.13.1'
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      hamt_plus: registry.npmmirror.com/hamt_plus/1.0.2
+      react: registry.npmmirror.com/react/18.1.0
+      react-dom: registry.npmmirror.com/react-dom/18.1.0_react@18.1.0
+    dev: false
 
   registry.npmmirror.com/recrawl-sync/2.2.2:
     resolution: {integrity: sha512-E2sI4F25Fu2nrfV+KsnC7/qfk/spQIYXlonfQoS4rwxeNK5BjxnLPbWiRXHVXPwYBOTWtPX5765kTm/zJiL+LQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/recrawl-sync/-/recrawl-sync-2.2.2.tgz}

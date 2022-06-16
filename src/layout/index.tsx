@@ -3,8 +3,6 @@ import {
   IconHome, IconUser, IconSetting, IconEdit,
 } from '@douyinfe/semi-icons';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { getLoginStatus } from '@/utils';
-import LoginPage from '@/pages/LoginPage';
 import styles from './style.module.scss';
 
 const itemList = [
@@ -31,13 +29,6 @@ const MyLayout = () => {
 
     return '/Home';
   };
-
-  const login = getLoginStatus();
-  if (!login) {
-    return (
-      <LoginPage />
-    );
-  }
 
   const { Footer, Sider, Content } = Layout;
 

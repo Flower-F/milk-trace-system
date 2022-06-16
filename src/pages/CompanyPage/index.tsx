@@ -10,11 +10,18 @@ const content = {
   address: '广东省广州市番禺区小谷围街道华南理工大学大学城校区',
 };
 
+export type TContent = {
+  address: string;
+  company: string;
+  phone: string;
+}
+
+export const defaultContent = { address: '', company: '', phone: '' };
+
 const CompanyPage = () => {
   const [edit, setEdit] = useState(false);
 
   const handleSubmit = (values: any) => {
-    // eslint-disable-next-line no-console
     console.log(values);
     Toast.info('表单已提交');
   };
@@ -33,23 +40,23 @@ const CompanyPage = () => {
           </div>
         </div>
         {
-        edit ? (
-          <Form onSubmit={(values) => handleSubmit(values)} className={styles.form}>
-            <Form.Input field="name" label="公司名称" placeholder="请输入公司名称" />
-            <Form.Input field="phone" label="联系方式" placeholder="请输入公司联系方式" />
-            <Form.Input field="address" label="地址" placeholder="请输入公司地址" />
-            <div className={styles.button}>
-              <Button htmlType="submit" type="primary">更新信息</Button>
+          edit ? (
+            <Form onSubmit={(values) => handleSubmit(values)} className={styles.form}>
+              <Form.Input field="name" label="公司名称" placeholder="请输入公司名称" />
+              <Form.Input field="phone" label="联系方式" placeholder="请输入公司联系方式" />
+              <Form.Input field="address" label="地址" placeholder="请输入公司地址" />
+              <div className={styles.button}>
+                <Button htmlType="submit" type="primary">更新信息</Button>
+              </div>
+            </Form>
+          ) : (
+            <div className={`${styles.form} ${styles.debounce}`}>
+              <InfoBlock title="公司名称" content={content.company} />
+              <InfoBlock title="联系方式" content={content.phone} />
+              <InfoBlock title="地址" content={content.address} />
             </div>
-          </Form>
-        ) : (
-          <div className={`${styles.form} ${styles.debounce}`}>
-            <InfoBlock title="公司名称" content={content.company} />
-            <InfoBlock title="联系方式" content={content.phone} />
-            <InfoBlock title="地址" content={content.address} />
-          </div>
-        )
-      }
+          )
+        }
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
-import Header from '@/components/Header';
+import { Header } from '@/components';
 import Layout from '@/layout';
 
 const HomePage = lazy(() => import('@/pages/HomePage'));

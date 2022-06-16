@@ -1,32 +1,73 @@
-import { useCallback, useState } from 'react';
-import { Button, Form, Toast } from '@douyinfe/semi-ui';
+import { useCallback, useEffect, useState } from 'react';
+import { Button, Form, Spin } from '@douyinfe/semi-ui';
 import { IconEdit2Stroked, IconUndo } from '@douyinfe/semi-icons';
-import InfoBlock from '@/components/InfoBlock';
+import { InfoBlock } from '@/components';
+import { useUserInfoStore } from '@/store';
 import styles from './style.module.scss';
-
-const content = {
-  company: '华南理工牧场',
-  phone: '12345678909',
-  address: '广东省广州市番禺区小谷围街道华南理工大学大学城校区',
-};
-
-export type TContent = {
-  address: string;
-  company: string;
-  phone: string;
-}
-
-export const defaultContent = { address: '', company: '', phone: '' };
 
 const CompanyPage = () => {
   const [edit, setEdit] = useState(false);
 
-  const handleSubmit = (values: any) => {
-    console.log(values);
-    Toast.info('表单已提交');
-  };
+  const {
+    getUserInfo, loadUserInfo, setUserInfo, loading,
+  } = useUserInfoStore();
+  const userInfo = getUserInfo();
+
+  useEffect(() => {
+    setTimeout(() => {
+      loadUserInfo();
+    }, 2000);
+  }, []);
+
+  const handleSubmit = useCallback((values: any) => {
+    setUserInfo(values);
+  }, []);
 
   const changeEdit = useCallback(() => setEdit(!edit), [edit]);
+
+  const renderForm = () => (
+    <Form onSubmit={(values) => handleSubmit(values)} className={styles.form}>
+      <Form.Input
+        field="company"
+        label="公司名称"
+        placeholder="请输入公司名称"
+        initValue={userInfo?.company}
+        rules={[{ required: true, message: '公司名称为必填项' }]}
+      />
+      <Form.Input
+        field="phone"
+        label="联系方式"
+        placeholder="请输入公司联系方式"
+        initValue={userInfo?.phone}
+        rules={[{ required: true, message: '公司联系方式为必填项' }]}
+      />
+      <Form.Input
+        field="address"
+        label="地址"
+        placeholder="请输入公司地址"
+        initValue={userInfo?.address}
+        rules={[{ required: true, message: '公司地址为必填项' }]}
+      />
+      <div className={styles.button}>
+        <Button htmlType="submit" type="primary">更新信息</Button>
+      </div>
+    </Form>
+  );
+
+  const renderInfoBlock = () => (
+    <div className={styles.form}>
+      {
+        loading ? <div className={styles.spin}><Spin size="large" /></div>
+          : (
+            <>
+              <InfoBlock title="公司名称" content={userInfo?.company} />
+              <InfoBlock title="联系方式" content={userInfo?.phone} />
+              <InfoBlock title="地址" content={userInfo?.address} />
+            </>
+          )
+      }
+    </div>
+  );
 
   return (
     <div className={styles['company-container']}>
@@ -41,20 +82,9 @@ const CompanyPage = () => {
         </div>
         {
           edit ? (
-            <Form onSubmit={(values) => handleSubmit(values)} className={styles.form}>
-              <Form.Input field="name" label="公司名称" placeholder="请输入公司名称" />
-              <Form.Input field="phone" label="联系方式" placeholder="请输入公司联系方式" />
-              <Form.Input field="address" label="地址" placeholder="请输入公司地址" />
-              <div className={styles.button}>
-                <Button htmlType="submit" type="primary">更新信息</Button>
-              </div>
-            </Form>
+            renderForm()
           ) : (
-            <div className={`${styles.form} ${styles.debounce}`}>
-              <InfoBlock title="公司名称" content={content.company} />
-              <InfoBlock title="联系方式" content={content.phone} />
-              <InfoBlock title="地址" content={content.address} />
-            </div>
+            renderInfoBlock()
           )
         }
       </div>

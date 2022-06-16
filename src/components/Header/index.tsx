@@ -2,7 +2,7 @@ import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { IconGithubLogo, IconMoon, IconSun } from '@douyinfe/semi-icons';
 import { useEffect } from 'react';
 import { getLoginStatus } from '@/utils';
-import { useThemeStore } from '@/store/theme';
+import { useThemeStore } from '@/store';
 import styles from './style.module.scss';
 
 const Header = () => {

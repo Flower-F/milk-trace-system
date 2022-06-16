@@ -7,6 +7,8 @@
   padding: 10px 20px;
 
   .block {
+    width: 480px;
+    height: 356px;
     padding: 30px 40px;
     background-color: #f9f9f9;
     border-radius: 5px;
@@ -16,7 +18,7 @@
       margin-bottom: 15px;
 
       .title {
-        margin-bottom: 12px;
+        margin-bottom: 14px;
         font-size: 24px;
         color: var(--semi-color-text-0);
         text-align: center;
@@ -37,6 +39,10 @@
       display: flex;
       align-items: center;
       justify-content: flex-end;
+
+      .right-button {
+        margin-left: 8px;
+      }
     }
   }
 }

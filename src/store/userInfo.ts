@@ -9,25 +9,26 @@ const initialUserInfo = atom<TUserInfo | null>({
 
 export const useUserInfoStore = () => {
   const [userInfo, setRecoilUserInfo] = useRecoilState(initialUserInfo);
-  const [loading, setLoading] = useState(true);
-
-  const getUserInfo = () => userInfo;
+  const [loading, setLoading] = useState(false);
 
   const setUserInfo = async (userInfo: TUserInfo) => {
+    setLoading(true);
     await setUserInfoApi(userInfo);
+    setLoading(false);
     setRecoilUserInfo(userInfo);
   };
 
   const loadUserInfo = async () => {
-    const result = await getUserInfoApi();
+    setLoading(true);
+    const userInfo = await getUserInfoApi();
     setLoading(false);
-    setRecoilUserInfo(result);
+    setRecoilUserInfo(userInfo);
   };
 
   return {
-    getUserInfo,
+    userInfo,
+    loading,
     setUserInfo,
     loadUserInfo,
-    loading,
   };
 };

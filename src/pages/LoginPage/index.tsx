@@ -28,7 +28,7 @@ const LoginPage = () => {
       <img className={styles.background} src="/milk-banner.png" alt="背景图片" />
       <div className={styles['login-form']}>
         <h3 className={styles.title}>特仑苏牛奶溯源系统</h3>
-        <Form onSubmit={(values) => handleSubmit(values)} style={{ width: 400 }}>
+        <Form onSubmit={(values) => handleSubmit(values)} className={styles.form}>
           <Form.Select
             field="role"
             label="角色"
@@ -45,14 +45,14 @@ const LoginPage = () => {
             field="username"
             label="用户名"
             placeholder="请输入您的用户名"
-            rules={[{ required: true, message: '用户名未填写' }]}
+            rules={[{ required: true, message: '用户名为必填项' }]}
           />
           <Form.Input
             field="password"
             label="密码"
             type="password"
             placeholder="请输入您的密码"
-            rules={[{ required: true, message: '密码未填写' }]}
+            rules={[{ required: true, message: '密码为必填项' }]}
           />
           <div className={styles['login-button']}>
             <Button htmlType="submit" type="secondary">登录</Button>

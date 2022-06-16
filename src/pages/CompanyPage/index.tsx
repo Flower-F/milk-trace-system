@@ -9,14 +9,11 @@ const CompanyPage = () => {
   const [edit, setEdit] = useState(false);
 
   const {
-    getUserInfo, loadUserInfo, setUserInfo, loading,
+    userInfo, loading, loadUserInfo, setUserInfo,
   } = useUserInfoStore();
-  const userInfo = getUserInfo();
 
   useEffect(() => {
-    setTimeout(() => {
-      loadUserInfo();
-    }, 2000);
+    loadUserInfo();
   }, []);
 
   const handleSubmit = useCallback((values: any) => {
@@ -80,13 +77,7 @@ const CompanyPage = () => {
               : <IconEdit2Stroked className={styles.icon} title="编辑" />}
           </div>
         </div>
-        {
-          edit ? (
-            renderForm()
-          ) : (
-            renderInfoBlock()
-          )
-        }
+        {edit ? renderForm() : renderInfoBlock()}
       </div>
     </div>
   );

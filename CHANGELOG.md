@@ -1,5 +1,36 @@
 # Changelog
 
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [0.0.3](https://github.com/Flower-F/milk-trace-system/compare/v0.0.2...v0.0.3) (2022-06-16)
+
+
+### Config Change👷
+
+* 添加lint cache ([34ce54d](https://github.com/Flower-F/milk-trace-system/commit/34ce54dde479bdca911100f7540bf61858a6d2ac))
+
+
+### Bug Fixes🐛
+
+* 修复路由outlet位置错误的bug ([d965aa6](https://github.com/Flower-F/milk-trace-system/commit/d965aa6b763976f30746310659697649bbd6816f))
+* 修复刷新导致菜单项错误的bug ([159725e](https://github.com/Flower-F/milk-trace-system/commit/159725ecc3a74836f9cf6746dd2cb597ef2c46a2))
+* 修复主题切换存在的bug ([ce456cc](https://github.com/Flower-F/milk-trace-system/commit/ce456cc8d3e95e034ad1287bbdaee97d3a460ad9))
+* 修复Header高度的bug ([7ba3715](https://github.com/Flower-F/milk-trace-system/commit/7ba37152f3d57364813620cf5b7bc91399c4dd96))
+
+
+### Features✨
+
+* 登录界面前后端联调 ([6860b74](https://github.com/Flower-F/milk-trace-system/commit/6860b7484781672adb7907d26b4283211e3c0b14))
+* 公司介绍页面ui ([c7f81dc](https://github.com/Flower-F/milk-trace-system/commit/c7f81dca76bd6007c2f05b13706521922d433192))
+* 添加404页面 ([45c0bea](https://github.com/Flower-F/milk-trace-system/commit/45c0bea060d42dbbdb7c6c75bbfd5a368c0bcbcc))
+* 完成登录界面 ([68fa0c8](https://github.com/Flower-F/milk-trace-system/commit/68fa0c89c179c3081dbfdc0d3eac7354de759439))
+* 完成路由跳转 ([7dacd64](https://github.com/Flower-F/milk-trace-system/commit/7dacd64e0f5c60bc46b1581cabfc431b35803690))
+* 完成首页内容展示 ([5755c7b](https://github.com/Flower-F/milk-trace-system/commit/5755c7b7b0eb7120db1df97b65ec8bed24bf2da4))
+* 完成修改密码功能 ([22c7624](https://github.com/Flower-F/milk-trace-system/commit/22c762494050d81a2626757922e89d16178e0153))
+* 完成用户信息修改模块 ([6337918](https://github.com/Flower-F/milk-trace-system/commit/63379184f0ef1fd99257ebcb13cc40c23bb1e8d1))
+* 完成Setting Page ([f1035a1](https://github.com/Flower-F/milk-trace-system/commit/f1035a199ed4caaf9bfd32e8d4d7d9c316a9cb03))
+* 修改路由配置结构 ([e0108e8](https://github.com/Flower-F/milk-trace-system/commit/e0108e87eb1124f68b87e0a80e59110820586ae7))
+
 ### 0.0.2 (2022-06-13)
 
 

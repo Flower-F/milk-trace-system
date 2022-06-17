@@ -21,7 +21,7 @@ const MyLayout = () => {
   const { pathname } = useLocation();
 
   const getDefaultKey = () => {
-    for (let i = 0; i < itemList.length; i += 1) {
+    for (let i = 0; i < itemList.length; i++) {
       if (pathname.includes(itemList[i].itemKey.toLowerCase())) {
         return itemList[i].itemKey;
       }

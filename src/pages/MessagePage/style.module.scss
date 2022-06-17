@@ -1,0 +1,17 @@
+.message-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding-top: 20px;
+
+  .block {
+    display: flex;
+    width: 1200px;
+    padding: 8px 4px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    background: linear-gradient(90deg, #673ab7 0%, #512da8 100%);
+    border-radius: 5px;
+  }
+}

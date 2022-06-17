@@ -1,19 +1,17 @@
 import md5 from 'md5';
 import { request } from '@/utils';
+import {
+  FACTORY, RANCH, SELLER, STORAGE,
+} from '@/constants';
 
-export enum ERole {
-  _ranch = 0, // 牧场
-  _factory = 1, // 加工厂
-  _storage = 2, // 储运商
-  _seller = 3, // 销售商
-}
+export type TRole = typeof RANCH | typeof FACTORY | typeof STORAGE | typeof SELLER;
 
-type TLogin = {
+export type TLogin = {
   token: string;
   expiredAt: string;
 }
 
-export const loginApi = (username: string, password: string, role: ERole) => request<TLogin>({
+export const loginApi = (username: string, password: string, role: TRole) => request<TLogin>({
   url: '/login',
   data: {
     username,

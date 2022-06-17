@@ -1,5 +1,7 @@
 # Milk Trace System
 
+## Tech Stack
+
 - Vite
 - React + Recoil
 - TypeScript
@@ -8,3 +10,15 @@
 - ESLint + StyleLint + EditorConfig
 - CommitLint + Husky + Lint-Staged
 - Standard-Version
+
+## Install
+
+```bash
+pnpm i
+```
+
+## Development
+
+```bash
+pnpm dev
+```

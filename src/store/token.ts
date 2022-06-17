@@ -1,6 +1,6 @@
 import { atom, useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
-import { ERole, loginApi, logoutApi } from '@/api';
+import { TRole, loginApi, logoutApi } from '@/api';
 import {
   clearItems, getItem, setItem, setTokenExpired,
 } from '@/utils';
@@ -15,7 +15,7 @@ export const useTokenStore = () => {
   const [token, setRecoilToken] = useRecoilState(initialToken);
   const navigate = useNavigate();
 
-  const loginAction = (username: string, password: string, role: ERole) => {
+  const loginAction = (username: string, password: string, role: TRole) => {
     loginApi(
       username,
       password,

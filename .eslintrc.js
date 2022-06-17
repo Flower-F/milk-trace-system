@@ -75,5 +75,11 @@ module.exports = {
     'no-param-reassign': [
       'off',
     ],
+    'no-plusplus': [
+      'off',
+    ],
+    'react/require-default-props': [
+      'off',
+    ],
   },
 };

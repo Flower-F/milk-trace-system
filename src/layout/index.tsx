@@ -58,7 +58,7 @@ const MyLayout = () => {
           className={styles.footer}
         >
           <div>
-            <span style={{ marginRight: 8 }}>特仑苏</span>
+            <span className={styles['left-footer']}>特仑苏</span>
             <span>CopyRight © 2006-2022 TELUNSU. All Rights Reserved.</span>
           </div>
         </Footer>

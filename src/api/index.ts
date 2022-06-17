@@ -1,3 +1,3 @@
-export * from './login';
+export * from './auth';
 export * from './userInfo';
 export * from './password';

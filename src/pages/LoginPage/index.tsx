@@ -8,10 +8,10 @@ import styles from './style.module.scss';
 const LoginPage = () => {
   const { Option } = Form.Select;
 
-  const { loginAction } = useTokenStore();
+  const { loginAction: login } = useTokenStore();
 
   const handleSubmit = useCallback((values: Record<string, any>) => {
-    loginAction(values.username, values.password, values.role);
+    login(values.username, values.password, values.role);
   }, []);
 
   const navigate = useNavigate();

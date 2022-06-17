@@ -1,6 +1,6 @@
 import { atom, useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
-import { ERole, loginApi } from '@/api';
+import { ERole, loginApi, logoutApi } from '@/api';
 import {
   clearItems, getItem, setItem, setTokenExpired,
 } from '@/utils';
@@ -29,7 +29,8 @@ export const useTokenStore = () => {
     });
   };
 
-  const logoutAction = () => {
+  const logoutAction = async () => {
+    await logoutApi();
     setRecoilToken('');
     clearItems();
     navigate('/login');

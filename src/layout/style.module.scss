@@ -14,5 +14,9 @@
   .footer {
     padding: 18px 25px;
     color: var(--semi-color-text-2);
+
+    .left-footer {
+      margin-right: 8px;
+    }
   }
 }

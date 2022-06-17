@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Button, Form, Spin } from '@douyinfe/semi-ui';
+import {
+  Button, Form, Spin, Toast,
+} from '@douyinfe/semi-ui';
 import { IconEdit2Stroked, IconUndo } from '@douyinfe/semi-icons';
 import { InfoBlock } from '@/components';
 import { useUserInfoStore } from '@/store';
@@ -16,8 +18,10 @@ const CompanyPage = () => {
     loadUserInfo();
   }, []);
 
-  const handleSubmit = useCallback((values: any) => {
-    setUserInfo(values);
+  const handleSubmit = useCallback(async (values: any) => {
+    await setUserInfo(values);
+    Toast.success('修改成功');
+    setEdit(false);
   }, []);
 
   const changeEdit = useCallback(() => setEdit(!edit), [edit]);

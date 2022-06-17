@@ -22,3 +22,8 @@ export const loginApi = (username: string, password: string, role: ERole) => req
   },
   method: 'POST',
 });
+
+export const logoutApi = () => request({
+  url: '/logout',
+  method: 'POST',
+});

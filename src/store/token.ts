@@ -15,8 +15,8 @@ export const useTokenStore = () => {
   const [token, setRecoilToken] = useRecoilState(initialToken);
   const navigate = useNavigate();
 
-  const loginAction = (username: string, password: string, role: TRole) => {
-    loginApi(
+  const loginAction = async (username: string, password: string, role: TRole) => {
+    await loginApi(
       username,
       password,
       role,
@@ -25,7 +25,7 @@ export const useTokenStore = () => {
       setTokenExpired(data.expiredAt);
       setItem(TOKEN, data.token);
     }).finally(() => {
-      navigate('/admin');
+      navigate('/admin/home');
     });
   };
 

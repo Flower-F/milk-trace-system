@@ -54,7 +54,16 @@ export type TMessage = {
   code: string | null;
 }
 
-export const getMessageApi = () => request<TMessage>({
+export const getMessageApi = () => request<TMessage[]>({
   url: '/getMessage',
   method: 'GET',
+});
+
+export const setMessageApi = (data: Record<string, any>, code: string | null) => request({
+  url: '/setMessage',
+  data: {
+    ...data,
+    code,
+  },
+  method: 'POST',
 });

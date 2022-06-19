@@ -1,6 +1,5 @@
 import { Data } from '@douyinfe/semi-ui/lib/es/descriptions';
 import { Typography } from '@douyinfe/semi-ui';
-import shortid from 'shortid';
 import {
   TFactory, TMessage, TRanch, TRole, TSeller, TStorage,
 } from '@/api';
@@ -8,13 +7,13 @@ import {
   FACTORY, RANCH, SELLER, STORAGE,
 } from '@/constants';
 
-const ranchMapping = {
+export const ranchMapping = {
   batchId: '批次编号',
   weight: '总净重',
   date: '产奶日期',
 };
 
-const factoryMapping = {
+export const factoryMapping = {
   checkPerson: '抽检人',
   checkDate: '抽检日期',
   workPerson: '加工人',
@@ -25,12 +24,12 @@ const factoryMapping = {
   weight: '总净重',
 };
 
-const storageMapping = {
+export const storageMapping = {
   driver: '运输负责人',
   batchId: '批次编号',
 };
 
-const sellerMapping = {
+export const sellerMapping = {
   price: '商品售价',
   date: '上架时间',
   batchId: '批次编号',
@@ -38,7 +37,7 @@ const sellerMapping = {
 
 const { Paragraph } = Typography;
 
-const standardItem = (
+const getStandardItem = (
   item: TRanch | TFactory| TStorage | TSeller | null,
   mapper: Record<string, any>,
 ) => {
@@ -73,29 +72,29 @@ type TStandardMessage = {
   storage: Data[] | null;
   seller: Data[] | null;
   code: Data[] | null;
-  role: TRole,
-  id: string;
+  role: TRole;
+  id: string | null;
 }
 
 const getStandardMessage = (data: TMessage): TStandardMessage => {
   let role: TRole = RANCH;
 
-  const ranch = standardItem(data.ranch, ranchMapping);
+  const ranch = getStandardItem(data.ranch, ranchMapping);
   if (ranch) {
     role = FACTORY;
   }
 
-  const factory = standardItem(data.factory, factoryMapping);
+  const factory = getStandardItem(data.factory, factoryMapping);
   if (factory) {
     role = STORAGE;
   }
 
-  const storage = standardItem(data.storage, storageMapping);
+  const storage = getStandardItem(data.storage, storageMapping);
   if (storage) {
     role = SELLER;
   }
 
-  const seller = standardItem(data.seller, sellerMapping);
+  const seller = getStandardItem(data.seller, sellerMapping);
 
   const code: Data[] = [];
 
@@ -113,10 +112,58 @@ const getStandardMessage = (data: TMessage): TStandardMessage => {
     seller,
     code,
     role,
-    id: shortid.generate(),
+    id: data.code,
   };
 };
 
-export const getMessageList = (messageList: TMessage[]) => messageList.map(
-  (item) => getStandardMessage(item),
-);
+export const getStandardMessageList = (messageList: TMessage[] | null) => {
+  if (messageList === null) {
+    return [];
+  }
+
+  return messageList.map((item) => getStandardMessage(item));
+};
+
+type TType = 'normal' | 'date' | 'number';
+
+export type TForm = {
+  label: string;
+  field: string;
+  type: TType;
+}
+
+const getType = (key: string): TType => {
+  const standardKey = key.toLowerCase();
+
+  if (standardKey.includes('date')) return 'date';
+
+  if (standardKey === 'price' || standardKey === 'weight') return 'number';
+
+  return 'normal';
+};
+
+export const getFormData = (mapping: Record<string, any>) => {
+  const result:TForm[] = [];
+
+  Object.keys(mapping).forEach((key) => {
+    result.push({
+      label: mapping[key],
+      field: key,
+      type: getType(key),
+    });
+  });
+
+  return result;
+};
+
+const ranchFormData = getFormData(ranchMapping);
+const factoryFormData = getFormData(factoryMapping);
+const storageFormData = getFormData(storageMapping);
+const sellerFormData = getFormData(sellerMapping);
+
+export const formData = {
+  ranchFormData,
+  factoryFormData,
+  storageFormData,
+  sellerFormData,
+};

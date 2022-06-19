@@ -10,8 +10,8 @@ const LoginPage = () => {
 
   const { loginAction: login } = useTokenStore();
 
-  const handleSubmit = useCallback((values: Record<string, any>) => {
-    login(values.username, values.password, values.role);
+  const handleSubmit = useCallback(async (values: Record<string, any>) => {
+    await login(values.username, values.password, values.role);
   }, []);
 
   const navigate = useNavigate();

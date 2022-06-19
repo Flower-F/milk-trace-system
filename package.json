@@ -17,14 +17,14 @@
     "@douyinfe/semi-illustrations": "^2.12.0",
     "@douyinfe/semi-ui": "^2.12.0",
     "axios": "^0.27.2",
+    "date-fns": "^2.28.0",
     "md5": "^2.3.0",
     "normalize.css": "^8.0.1",
     "qs": "^6.10.5",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
-    "recoil": "^0.7.3",
-    "shortid": "^2.2.16"
+    "recoil": "^0.7.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",

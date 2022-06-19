@@ -5,9 +5,17 @@
   width: 100%;
   padding-top: 20px;
 
+  .spin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 60px);
+  }
+
   .block {
     display: flex;
-    width: 1200px;
+    width: 1120px;
     padding: 8px 4px;
     margin-bottom: 20px;
     overflow-x: auto;

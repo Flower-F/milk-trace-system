@@ -1,12 +1,16 @@
-import { Form, Modal } from '@douyinfe/semi-ui';
-import { useCallback, useState } from 'react';
+import { Form, Modal, Spin } from '@douyinfe/semi-ui';
+import { useCallback, useRef } from 'react';
 import format from 'date-fns/format';
 import { TForm } from '@/utils';
+import { useMessageStore } from '@/store';
+import styles from './style.module.scss';
+import { TRole } from '@/api';
 
 type Props = {
   formDataList: TForm[];
   title: string;
   code: string | null;
+  role: TRole;
   visible: boolean;
   handleOk?: () => void;
   handleCancel?: () => void;
@@ -24,28 +28,25 @@ const getProperties = (formData: TForm) => ({
 });
 
 const ModalForm = ({
-  title, visible, handleCancel, handleOk: handleModalClick, formDataList, code,
+  title, visible, handleCancel, handleOk, formDataList, code, role,
 }: Props) => {
-  const [form, setForm] = useState<Record<string, any>>({});
+  const { setMessage, loading } = useMessageStore();
 
-  const handleSubmit = useCallback((values: Record<string, any>) => {
-    const itHasDate = Object.keys(values).includes('date');
-    if (itHasDate) {
-      values.date = format(values.date, 'yyyy-MM-dd');
-    }
+  const formRef = useRef<any>();
 
-    console.log({
-      ...values,
-      code,
+  const handleSubmit = useCallback(async () => {
+    await formRef.current.validate().then(async (values: Record<string, any>) => {
+      const itHasDate = Object.keys(values).includes('date');
+      if (itHasDate) {
+        values.date = format(values.date, 'yyyy-MM-dd');
+      }
+      await setMessage(values, code, role);
+
+      if (handleOk) {
+        handleOk();
+      }
     });
   }, []);
-
-  const handleOk = () => {
-    if (handleModalClick) {
-      handleModalClick();
-    }
-    handleSubmit(form);
-  };
 
   const { Input, DatePicker, InputNumber } = Form;
 
@@ -70,18 +71,23 @@ const ModalForm = ({
   return (
     <Modal
       title={title}
-      onOk={handleOk}
+      onOk={handleSubmit}
       onCancel={handleCancel}
       closeOnEsc
       visible={visible}
     >
-      <Form
-        onSubmit={handleSubmit}
-        layout="vertical"
-        onValueChange={(form) => setForm(form)}
-      >
-        {formDataList.map((formData) => renderForm(formData))}
-      </Form>
+      {
+        loading ? <div className={styles.spin}><Spin size="large" /></div>
+          : (
+            <Form
+              onSubmit={handleSubmit}
+              layout="vertical"
+              getFormApi={(formApi) => { formRef.current = formApi; }}
+            >
+              {formDataList.map((formData) => renderForm(formData))}
+            </Form>
+          )
+      }
     </Modal>
   );
 };

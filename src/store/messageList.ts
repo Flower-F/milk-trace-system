@@ -1,7 +1,10 @@
 import { atom, useRecoilState } from 'recoil';
 import { useMemo, useState } from 'react';
-import { getMessageApi, setMessageApi, TMessage } from '@/api';
-import { getStandardMessageList } from '@/utils';
+import cloneDeep from 'lodash-es/cloneDeep';
+import {
+  getMessageApi, setMessageApi, TMessage, TRole,
+} from '@/api';
+import { editMessage, getStandardMessageList } from '@/utils';
 
 const initialMessageList = atom<TMessage[] | null>({
   key: 'message',
@@ -21,9 +24,20 @@ export const useMessageStore = () => {
 
   const getMessage = () => useMemo(() => getStandardMessageList(messageList), [messageList]);
 
-  const setMessage = async (data: Record<string, any>, code: string | null) => {
+  const setMessage = async (data: Record<string, any>, code: string | null, role: TRole) => {
     setLoading(true);
+    const saveData = cloneDeep(data);
     await setMessageApi(data, code);
+    const messageEditIndex = messageList?.findIndex((message) => message.code === code);
+    if (messageList && messageEditIndex !== undefined) {
+      const messageEdit = editMessage(messageList[messageEditIndex], role, saveData);
+      const newMessageList = [
+        ...messageList.slice(0, messageEditIndex),
+        messageEdit,
+        ...messageList.slice(messageEditIndex + 1),
+      ];
+      setRecoilMessageList(newMessageList);
+    }
     setLoading(false);
   };
 

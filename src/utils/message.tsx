@@ -167,3 +167,19 @@ export const formData = {
   storageFormData,
   sellerFormData,
 };
+
+export const editMessage = (messageEdit: TMessage, role: TRole, data: Record<string, any>) => {
+  let newMessage: TMessage = messageEdit;
+
+  if (role === RANCH) {
+    newMessage = { ...messageEdit, ranch: data as TRanch };
+  } else if (role === FACTORY) {
+    newMessage = { ...messageEdit, factory: data as TFactory };
+  } else if (role === STORAGE) {
+    newMessage = { ...messageEdit, storage: data as TStorage };
+  } else if (role === SELLER) {
+    newMessage = { ...messageEdit, seller: data as TSeller };
+  }
+
+  return newMessage;
+};

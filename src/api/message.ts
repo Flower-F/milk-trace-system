@@ -59,10 +59,13 @@ export const getMessageApi = () => request<TMessage[]>({
   method: 'GET',
 });
 
-export const setMessageApi = (data: Record<string, any>, code: string | null) => request({
+export const setMessageApi = (
+  data: Record<string, any>,
+  code: string | null,
+) => request({
   url: '/setMessage',
   data: {
-    ...data,
+    message: JSON.stringify(data),
     code,
   },
   method: 'POST',

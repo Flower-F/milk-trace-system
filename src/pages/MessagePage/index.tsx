@@ -26,10 +26,10 @@ const MessagePage = () => {
           ranch, factory, storage, seller, role, id,
         }) => (
           <div className={styles.block} key={id}>
-            <MessageItem data={ranch} title="牧场" shown={role >= RANCH} formDataList={formData.ranchFormData} code={id} />
-            <MessageItem data={factory} title="加工厂" shown={role >= FACTORY} formDataList={formData.factoryFormData} code={id} />
-            <MessageItem data={storage} title="储运商" shown={role >= STORAGE} formDataList={formData.storageFormData} code={id} />
-            <MessageItem data={seller} title="销售商" shown={role >= SELLER} formDataList={formData.sellerFormData} code={id} />
+            <MessageItem data={ranch} title="牧场" shown={role >= RANCH} formDataList={formData.ranchFormData} code={id} role={role} />
+            <MessageItem data={factory} title="加工厂" shown={role >= FACTORY} formDataList={formData.factoryFormData} code={id} role={role} />
+            <MessageItem data={storage} title="储运商" shown={role >= STORAGE} formDataList={formData.storageFormData} code={id} role={role} />
+            <MessageItem data={seller} title="销售商" shown={role >= SELLER} formDataList={formData.sellerFormData} code={id} role={role} />
           </div>
         )) : <div className={styles.spin}><Spin size="large" /></div>
       }

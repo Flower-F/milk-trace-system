@@ -1,10 +1,12 @@
-import { Form, Modal, Spin } from '@douyinfe/semi-ui';
+import {
+  Form, Modal, Spin, Toast,
+} from '@douyinfe/semi-ui';
 import { useCallback, useRef } from 'react';
 import format from 'date-fns/format';
 import { TForm } from '@/utils';
 import { useMessageStore } from '@/store';
-import styles from './style.module.scss';
 import { TRole } from '@/api';
+import styles from './style.module.scss';
 
 type Props = {
   formDataList: TForm[];
@@ -45,6 +47,8 @@ const ModalForm = ({
       if (handleOk) {
         handleOk();
       }
+    }).catch(() => {
+      Toast.error('您的表单信息填写有误');
     });
   }, []);
 
@@ -55,7 +59,18 @@ const ModalForm = ({
 
     if (formData.type === 'number') {
       return (
-        <InputNumber {...properties} min={0} defaultValue={0} />
+        <InputNumber
+          {...properties}
+          min={0}
+          defaultValue={0}
+          rules={[{
+            required: true,
+            message: `${formData.label}为必填项`,
+          }, {
+            type: 'number',
+            message: '此处必须填写数字类型',
+          }]}
+        />
       );
     } if (formData.type === 'date') {
       return (

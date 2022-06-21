@@ -1,5 +1,5 @@
 import { Button, Empty } from '@douyinfe/semi-ui';
-import { IllustrationConstruction, IllustrationConstructionDark } from '@douyinfe/semi-illustrations';
+import { IllustrationNotFound, IllustrationNotFoundDark } from '@douyinfe/semi-illustrations';
 import { useNavigate } from 'react-router-dom';
 import styles from './style.module.scss';
 
@@ -13,8 +13,8 @@ const NotFoundPage = () => {
   return (
     <div className={styles['not-container']}>
       <Empty
-        image={<IllustrationConstruction className={styles['not-icon']} />}
-        darkModeImage={<IllustrationConstructionDark className={styles['not-icon']} />}
+        image={<IllustrationNotFound className={styles['not-icon']} />}
+        darkModeImage={<IllustrationNotFoundDark className={styles['not-icon']} />}
         title="404 Not Found"
         description="没有这个界面哦"
       />

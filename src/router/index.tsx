@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Header } from '@/components';
-import Layout from '@/layout';
+import { Layout } from '@/layouts';
 import {
   CompanyPage, HomePage, LoginPage, MessagePage, NotFoundPage, SettingPage, TracePage,
 } from '@/pages';

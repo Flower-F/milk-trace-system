@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { Toast } from '@douyinfe/semi-ui';
 import { BASE_URL, TOKEN } from '@/constants';
 import { isTimeout } from './auth';
 import { clearItems, getItem } from './storage';
@@ -17,17 +16,13 @@ axiosInstance.interceptors.response.use(
     }
     return Promise.reject(new Error(message));
   },
-  (error) => {
-    Toast.error(error);
-    return Promise.reject(new Error(error));
-  },
+  (error) => Promise.reject(new Error(error)),
 );
 
 // 请求拦截器
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = getItem(TOKEN);
-
     if (token) {
       if (isTimeout()) {
         clearItems();
@@ -41,10 +36,7 @@ axiosInstance.interceptors.request.use(
 
     return config;
   },
-  (error) => {
-    Toast.error(error);
-    return Promise.reject(new Error(error));
-  },
+  (error) => Promise.reject(new Error(error)),
 );
 
 export { axiosInstance as request };

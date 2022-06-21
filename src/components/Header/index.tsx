@@ -31,7 +31,7 @@ const Header = () => {
   const loginStatus = getLoginStatus();
 
   useEffect(() => {
-    if (!loginStatus) {
+    if (!loginStatus && pathname !== '/trace') {
       navigate('/login');
     } else if (pathname === '/' || pathname === '/admin' || pathname === '/admin/') {
       navigate('/admin/home');

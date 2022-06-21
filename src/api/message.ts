@@ -21,8 +21,6 @@ export type TFactory = {
   material: string;
   // 产品名称
   product: string;
-  // 总净重
-  weight: number;
   // 加工日期
   workDate: string;
   // 加工人姓名

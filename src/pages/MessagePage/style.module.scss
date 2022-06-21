@@ -17,16 +17,16 @@
     display: flex;
     flex-direction: column;
     width: 1120px;
-    padding: 8px 4px;
+    padding: 10px;
     margin-bottom: 20px;
     overflow-x: auto;
-    background: #512da8;
+    background: linear-gradient(90deg, #5c258d 0%, #4389a2 100%);
     border-radius: 5px;
 
     .top {
       margin-bottom: 5px;
       margin-left: 10px;
-      line-height: 30px;
+      line-height: 16px;
       color: #fff;
 
       :global(.semi-icon) {

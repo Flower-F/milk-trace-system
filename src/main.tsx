@@ -6,10 +6,10 @@ import App from './App';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
-    <RecoilRoot>
-      <ErrorBoundary>
+    <ErrorBoundary>
+      <RecoilRoot>
         <App />
-      </ErrorBoundary>
-    </RecoilRoot>
+      </RecoilRoot>
+    </ErrorBoundary>
   </BrowserRouter>,
 );

@@ -21,7 +21,6 @@ export const factoryMapping = {
   product: '产品名称',
   batchId: '批次编号',
   material: '产品成分',
-  weight: '总净重',
 };
 
 export const storageMapping = {

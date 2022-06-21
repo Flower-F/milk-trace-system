@@ -2,7 +2,7 @@ import {
   Form, Modal, Spin, Toast,
 } from '@douyinfe/semi-ui';
 import { useCallback, useRef } from 'react';
-import { format } from 'date-fns';
+import format from 'date-fns/format';
 import { TForm } from '@/utils';
 import { useMessageStore } from '@/store';
 import styles from './style.module.scss';

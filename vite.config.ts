@@ -2,15 +2,43 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import paths from 'vite-tsconfig-paths';
 import { visualizer } from 'rollup-plugin-visualizer';
+import viteImagemin from 'vite-plugin-imagemin';
+import legacy from '@vitejs/plugin-legacy';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     paths({
       loose: true,
     }),
     react(),
-    visualizer(),
+    viteImagemin({
+      // 无损压缩配置，无损压缩下图片质量不会变差
+      optipng: {
+        optimizationLevel: 7,
+      },
+      // 有损压缩配置，有损压缩下图片质量可能会变差
+      pngquant: {
+        quality: [0.8, 0.9],
+      },
+      // svg 优化
+      svgo: {
+        plugins: [
+          {
+            name: 'removeViewBox',
+          },
+          {
+            name: 'removeEmptyAttrs',
+            active: false,
+          },
+        ],
+      },
+    }),
+    legacy({
+      targets: ['ie >= 11'],
+    }),
+    visualizer({
+      open: true,
+    }),
   ],
   build: {
     minify: 'esbuild',
@@ -23,14 +51,15 @@ export default defineConfig({
         comments: true,
       },
     },
+    target: 'es2015',
     rollupOptions: {
       output: {
         manualChunks: {
-          'semi-icon': ['@douyinfe/semi-icons'],
           'semi-illustrations': ['@douyinfe/semi-illustrations'],
           'semi-ui': ['@douyinfe/semi-ui'],
-          react: ['react', 'react-dom'],
+          'react-vendor': ['react', 'react-dom'],
           'react-library': ['recoil', 'react-router-dom'],
+          'date-fns': ['date-fns'],
         },
       },
     },

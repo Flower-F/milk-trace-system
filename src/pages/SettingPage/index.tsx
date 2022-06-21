@@ -3,14 +3,14 @@ import { IconLink } from '@douyinfe/semi-icons';
 import {
   Button, Form, Toast, Typography,
 } from '@douyinfe/semi-ui';
-import { useTokenStore } from '@/store';
+import { useAuthStore } from '@/store';
 import { setPasswordApi } from '@/api';
 import { textList } from './data';
 import styles from './style.module.scss';
 
 const SettingPage = () => {
   const { Paragraph, Text } = Typography;
-  const { logoutAction } = useTokenStore();
+  const { logoutAction } = useAuthStore();
 
   const logout = useCallback(async () => {
     await logoutAction();

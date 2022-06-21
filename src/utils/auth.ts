@@ -1,5 +1,5 @@
 import { TOKEN_EXPIRED } from '@/constants';
-import { useTokenStore } from '@/store';
+import { useAuthStore } from '@/store';
 import { clearItems, getItem, setItem } from './storage';
 
 export const getTokenExpired = () => getItem(TOKEN_EXPIRED) || '';
@@ -19,7 +19,7 @@ export const isTimeout = () => {
 };
 
 export const getLoginStatus = () => {
-  const { getToken } = useTokenStore();
+  const { getToken } = useAuthStore();
   const token = getToken();
 
   let login = false;

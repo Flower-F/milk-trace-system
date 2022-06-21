@@ -1,14 +1,14 @@
 import { useCallback, useEffect } from 'react';
 import { Button, Form } from '@douyinfe/semi-ui';
 import { useNavigate } from 'react-router-dom';
-import { useTokenStore } from '@/store';
+import { useAuthStore } from '@/store';
 import { getLoginStatus } from '@/utils';
 import styles from './style.module.scss';
 
 const LoginPage = () => {
   const { Option } = Form.Select;
 
-  const { loginAction: login } = useTokenStore();
+  const { loginAction: login } = useAuthStore();
 
   const handleSubmit = useCallback(async (values: Record<string, any>) => {
     await login(values.username, values.password, values.role);

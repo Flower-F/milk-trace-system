@@ -52,6 +52,7 @@ export type TMessage = {
   seller: TSeller | null;
   role: TRole;
   code: string | null;
+  id: string;
 }
 
 export const getMessageApi = () => request<TMessage[]>({

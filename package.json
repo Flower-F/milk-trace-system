@@ -25,7 +25,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
-    "recoil": "^0.7.3"
+    "recoil": "^0.7.3",
+    "shortid": "^2.2.16"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",

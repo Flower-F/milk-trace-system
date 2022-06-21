@@ -38,12 +38,12 @@ export const sellerMapping = {
 const { Paragraph } = Typography;
 
 const getStandardItem = (
-  item: TRanch | TFactory| TStorage | TSeller | null,
+  item: TRanch | TFactory| TStorage | TSeller | null | undefined,
   mapper: Record<string, any>,
 ) => {
   const result: Data[] = [];
 
-  if (item === null) {
+  if (!item) {
     return null;
   }
 
@@ -71,9 +71,9 @@ type TStandardMessage = {
   factory: Data[] | null;
   storage: Data[] | null;
   seller: Data[] | null;
-  code: Data[] | null;
+  code: string | null;
   role: TRole;
-  id: string | null;
+  id: string;
 }
 
 const getStandardMessage = (data: TMessage): TStandardMessage => {
@@ -96,23 +96,14 @@ const getStandardMessage = (data: TMessage): TStandardMessage => {
 
   const seller = getStandardItem(data.seller, sellerMapping);
 
-  const code: Data[] = [];
-
-  if (data.code) {
-    code.push({
-      key: '溯源码',
-      value: <Paragraph copyable>{data.code}</Paragraph>,
-    });
-  }
-
   return {
     ranch,
     factory,
     storage,
     seller,
-    code,
+    code: data.code,
     role,
-    id: data.code,
+    id: data.id,
   };
 };
 
@@ -166,20 +157,4 @@ export const formData = {
   factoryFormData,
   storageFormData,
   sellerFormData,
-};
-
-export const editMessage = (messageEdit: TMessage, role: TRole, data: Record<string, any>) => {
-  let newMessage: TMessage = messageEdit;
-
-  if (role === RANCH) {
-    newMessage = { ...messageEdit, ranch: data as TRanch };
-  } else if (role === FACTORY) {
-    newMessage = { ...messageEdit, factory: data as TFactory };
-  } else if (role === STORAGE) {
-    newMessage = { ...messageEdit, storage: data as TStorage };
-  } else if (role === SELLER) {
-    newMessage = { ...messageEdit, seller: data as TSeller };
-  }
-
-  return newMessage;
 };

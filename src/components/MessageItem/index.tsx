@@ -4,20 +4,18 @@ import { Data } from '@douyinfe/semi-ui/lib/es/descriptions';
 import { useState } from 'react';
 import { ModalForm } from '@/components';
 import { TForm } from '@/utils';
-import { TRole } from '@/api';
 import styles from './style.module.scss';
 
 type Props = {
   data: Data[] | null;
   title: string;
-  role: TRole;
   code: string | null;
   shown?: boolean;
   formDataList: TForm[];
 }
 
 const MessageItem = ({
-  data, title, shown = true, formDataList, code, role,
+  data, title, shown = true, formDataList, code,
 }: Props) => {
   if (!shown) {
     return null;
@@ -60,7 +58,6 @@ const MessageItem = ({
         visible={visible}
         title={title}
         code={code}
-        role={role}
         formDataList={formDataList}
       />
     </>

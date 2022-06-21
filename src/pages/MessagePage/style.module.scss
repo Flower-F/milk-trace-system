@@ -15,11 +15,27 @@
 
   .block {
     display: flex;
+    flex-direction: column;
     width: 1120px;
     padding: 8px 4px;
     margin-bottom: 20px;
     overflow-x: auto;
-    background: linear-gradient(90deg, #673ab7 0%, #512da8 100%);
+    background: #512da8;
     border-radius: 5px;
+
+    .top {
+      margin-bottom: 5px;
+      margin-left: 10px;
+      line-height: 30px;
+      color: #fff;
+
+      :global(.semi-icon) {
+        color: rgb(84 169 255);
+      }
+    }
+
+    .bottom {
+      display: flex;
+    }
   }
 }

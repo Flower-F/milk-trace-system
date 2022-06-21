@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/Flower-F/milk-trace-system/compare/v0.0.3...v0.0.4) (2022-06-21)
+
+
+### Features✨
+
+* 添加error boundary ([1e10b75](https://github.com/Flower-F/milk-trace-system/commit/1e10b7514ca5e5607d6516ad6d4b8735b41b811d))
+* 添加ModalForm请求 ([2adae4d](https://github.com/Flower-F/milk-trace-system/commit/2adae4d59f48ecb06036f9b7f039ea47f1198866))
+* 退出登录功能 ([2751655](https://github.com/Flower-F/milk-trace-system/commit/2751655c84e6388d1d51c4bd3b94c8838d0d389a))
+* 完成MessagePage的UI ([f96d373](https://github.com/Flower-F/milk-trace-system/commit/f96d3739388a7f1a807dc610ef605f93aafba42c))
+* 完成ModalForm的UI ([37458e3](https://github.com/Flower-F/milk-trace-system/commit/37458e3dbc9393390424903e949c94c164bf968b))
+* 为404页面添加返回首页按钮 ([e52b459](https://github.com/Flower-F/milk-trace-system/commit/e52b45960caf3da64746ad17ec504adbc910b205))
+* 修改ModalForm网络请求逻辑 ([1a7380d](https://github.com/Flower-F/milk-trace-system/commit/1a7380db9685d1a1fc3c9ccc416da7092375f0e2))
+
 ### [0.0.3](https://github.com/Flower-F/milk-trace-system/compare/v0.0.2...v0.0.3) (2022-06-16)
 
 

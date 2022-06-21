@@ -9,9 +9,9 @@ import styles from './style.module.scss';
 type Props = {
   data: Data[] | null;
   title: string;
-  code: string | null;
+  code?: string | null;
   shown?: boolean;
-  formDataList: TForm[];
+  formDataList?: TForm[];
 }
 
 const MessageItem = ({
@@ -36,10 +36,9 @@ const MessageItem = ({
   };
 
   return (
-    <>
-      <div className={styles.item}>
-        <h3 className={styles.title}>{title}</h3>
-        {
+    <div className={styles.item}>
+      <h3 className={styles.title}>{title}</h3>
+      {
         data ? <Descriptions align="left" data={data} />
           : (
             <Empty
@@ -51,16 +50,17 @@ const MessageItem = ({
             </Empty>
           )
       }
-      </div>
-      <ModalForm
-        handleCancel={handleCancel}
-        handleOk={handleOk}
-        visible={visible}
-        title={title}
-        code={code}
-        formDataList={formDataList}
-      />
-    </>
+      {code && formDataList && (
+        <ModalForm
+          handleCancel={handleCancel}
+          handleOk={handleOk}
+          visible={visible}
+          title={title}
+          code={code}
+          formDataList={formDataList}
+        />
+      )}
+    </div>
   );
 };
 

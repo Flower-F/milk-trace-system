@@ -65,7 +65,7 @@ const getStandardItem = (
   return result;
 };
 
-type TStandardMessage = {
+export type TStandardMessage = {
   ranch: Data[] | null;
   factory: Data[] | null;
   storage: Data[] | null;

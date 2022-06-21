@@ -1,0 +1,25 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  width: 1120px;
+  padding: 10px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  background: linear-gradient(90deg, #5c258d 0%, #4389a2 100%);
+  border-radius: 5px;
+
+  .top {
+    margin-bottom: 8px;
+    margin-left: 6px;
+    line-height: 16px;
+    color: #fff;
+
+    :global(.semi-icon) {
+      color: rgb(84 169 255);
+    }
+  }
+
+  .bottom {
+    display: flex;
+  }
+}

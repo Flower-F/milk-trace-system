@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/Flower-F/milk-trace-system/compare/v0.0.4...v0.0.5) (2022-06-22)
+
+
+### Bug Fixes🐛
+
+* 添加一些错误处理 ([e4f8da6](https://github.com/Flower-F/milk-trace-system/commit/e4f8da6a920cab57936a504405c994b0c5783839))
+
+
+### Features✨
+
+* 添加单元测试 ([fbaab7a](https://github.com/Flower-F/milk-trace-system/commit/fbaab7af81fd9e80e422666e1661aa83945ab213))
+* 完成溯源界面 ([10156bb](https://github.com/Flower-F/milk-trace-system/commit/10156bbd22acb63ef1a1935717f35ae03dd75d7a))
+
+
+### Config Change👷
+
+* 打包优化 ([e3e69de](https://github.com/Flower-F/milk-trace-system/commit/e3e69decbcc6a43cb23ad364314f9b96351d5118))
+* 添加图片打包压缩 ([59fc180](https://github.com/Flower-F/milk-trace-system/commit/59fc18080fd444cf3d1d2bef70ff40f576acc56c))
+* 添加ci ([38cb258](https://github.com/Flower-F/milk-trace-system/commit/38cb25810978fed37fee4e293b0b419c2474e999))
+* 修改ci文件 ([4ae14c2](https://github.com/Flower-F/milk-trace-system/commit/4ae14c2d09cbdf12988a9abe653a6ba291c4cf62))
+
 ### [0.0.4](https://github.com/Flower-F/milk-trace-system/compare/v0.0.3...v0.0.4) (2022-06-21)
 
 

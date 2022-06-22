@@ -1,6 +1,5 @@
 import { atom, useRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
-import { Toast } from '@douyinfe/semi-ui';
 import { TRole, loginApi, logoutApi } from '@/api';
 import {
   clearItems, getItem, setItem, setTokenExpired,
@@ -40,9 +39,7 @@ export const useAuthStore = () => {
       setTokenExpired(data.expiredAt);
       setItem(TOKEN, data.token);
       setItem(ROLE, JSON.stringify(role));
-    }).catch((error) => {
-      Toast.error(error);
-    }).finally(() => {
+    }).catch().finally(() => {
       navigate('/admin/home');
     });
   };

@@ -2,7 +2,7 @@
 
 ## Tech Stack
 
-- Vite
+- Vite + Vitest
 - React + Recoil
 - TypeScript
 - Sass

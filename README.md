@@ -10,6 +10,7 @@
 - ESLint + StyleLint + EditorConfig
 - CommitLint + Husky + Lint-Staged
 - Standard-Version
+- Github workflows
 
 ## Install
 

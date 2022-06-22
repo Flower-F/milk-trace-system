@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.1](https://github.com/Flower-F/milk-trace-system/compare/v0.0.5...v0.1.1) (2022-06-22)
+
+
+### Features✨
+
+* 添加全屏切换功能 ([baed973](https://github.com/Flower-F/milk-trace-system/commit/baed9733f09e10a92ff83aace64cf8c17ca09126))
+
 ### [0.0.5](https://github.com/Flower-F/milk-trace-system/compare/v0.0.4...v0.0.5) (2022-06-22)
 
 

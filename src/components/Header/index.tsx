@@ -1,8 +1,10 @@
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { IconGithubLogo, IconMoon, IconSun } from '@douyinfe/semi-icons';
+import {
+  IconGithubLogo, IconMaximize, IconMinimize, IconMoon, IconSun,
+} from '@douyinfe/semi-icons';
 import { useEffect } from 'react';
 import { getLoginStatus } from '@/utils';
-import { useThemeStore } from '@/store';
+import { useScreenStore, useThemeStore } from '@/store';
 import styles from './style.module.scss';
 
 const Header = () => {
@@ -44,6 +46,15 @@ const Header = () => {
     }
   };
 
+  const { toggleScreen, getScreen } = useScreenStore();
+  const screen = getScreen();
+
+  useEffect(() => {
+    if (theme === 'dark') {
+      document.body.setAttribute('theme-mode', 'dark');
+    }
+  }, [theme]);
+
   return (
     <>
       <div className={styles.header}>
@@ -52,7 +63,10 @@ const Header = () => {
           <span className={styles['logo-title']}>特仑苏</span>
         </div>
         <div className={styles['button-group']}>
-          <button onClick={switchTheme} type="button" className={styles['change-theme']}>
+          <button onClick={toggleScreen} type="button" className={styles['change-button']}>
+            {screen ? <IconMinimize /> : <IconMaximize />}
+          </button>
+          <button onClick={switchTheme} type="button" className={styles['change-button']}>
             {theme === 'dark' ? <IconMoon /> : <IconSun /> }
           </button>
           <a href="https://github.com/Flower-F/milk-trace-system" target="_blank" rel="noreferrer">

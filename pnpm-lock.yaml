@@ -37,6 +37,7 @@ specifiers:
   recoil: ^0.7.3
   rollup-plugin-visualizer: ^5.6.0
   sass: ^1.52.3
+  screenfull: ^6.0.2
   shortid: ^2.2.16
   standard-version: ^9.5.0
   stylelint: ^14.9.1
@@ -62,6 +63,7 @@ dependencies:
   react-dom: registry.npmmirror.com/react-dom/18.1.0_react@18.1.0
   react-router-dom: registry.npmmirror.com/react-router-dom/6.3.0_ef5jwxihqo6n7gxfmzogljlgcm
   recoil: registry.npmmirror.com/recoil/0.7.3_ef5jwxihqo6n7gxfmzogljlgcm
+  screenfull: registry.npmmirror.com/screenfull/6.0.2
   shortid: registry.npmmirror.com/shortid/2.2.16
 
 devDependencies:
@@ -7379,6 +7381,13 @@ packages:
     version: 0.22.0
     dependencies:
       loose-envify: registry.npmmirror.com/loose-envify/1.4.0
+    dev: false
+
+  registry.npmmirror.com/screenfull/6.0.2:
+    resolution: {integrity: sha512-AQdy8s4WhNvUZ6P8F6PB21tSPIYKniic+Ogx0AacBMjKP1GUHN2E9URxQHtCusiwxudnCKkdy4GrHXPPJSkCCw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/screenfull/-/screenfull-6.0.2.tgz}
+    name: screenfull
+    version: 6.0.2
+    engines: {node: ^14.13.1 || >=16.0.0}
     dev: false
 
   registry.npmmirror.com/scroll-into-view-if-needed/2.2.29:

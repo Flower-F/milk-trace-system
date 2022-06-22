@@ -11,16 +11,26 @@ const CompanyPage = () => {
   const [edit, setEdit] = useState(false);
 
   const {
-    userInfo, loading, loadUserInfo, setUserInfo,
+    getUserInfo, loading, loadUserInfo, setUserInfo,
   } = useUserInfoStore();
 
+  const userInfo = getUserInfo();
+
   useEffect(() => {
-    loadUserInfo();
+    try {
+      loadUserInfo();
+    } catch (error) {
+      Toast.error('加载用户信息失败');
+    }
   }, []);
 
   const handleSubmit = useCallback(async (values: any) => {
-    await setUserInfo(values);
-    Toast.success('修改成功');
+    try {
+      await setUserInfo(values);
+      Toast.success('修改公司信息成功');
+    } catch (error) {
+      Toast.error('修改公司信息失败，请稍后重试');
+    }
     setEdit(false);
   }, []);
 

@@ -39,7 +39,8 @@
 
     .login-button {
       display: flex;
-      justify-content: flex-end;
+      align-items: center;
+      justify-content: space-between;
     }
   }
 }

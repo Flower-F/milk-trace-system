@@ -1,5 +1,7 @@
 import { useCallback, useEffect } from 'react';
-import { Button, Form } from '@douyinfe/semi-ui';
+import {
+  Button, Form, Toast, Typography,
+} from '@douyinfe/semi-ui';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '@/store';
 import { getLoginStatus } from '@/utils';
@@ -11,7 +13,11 @@ const LoginPage = () => {
   const { loginAction: login } = useAuthStore();
 
   const handleSubmit = useCallback(async (values: Record<string, any>) => {
-    await login(values.username, values.password, values.role);
+    try {
+      await login(values.username, values.password, values.role);
+    } catch (error) {
+      Toast.error('登录失败，请稍后再试');
+    }
   }, []);
 
   const navigate = useNavigate();
@@ -22,6 +28,12 @@ const LoginPage = () => {
       navigate('/admin');
     }
   }, [navigate, loginStatus]);
+
+  const goToTrace = () => {
+    navigate('/trace');
+  };
+
+  const { Text } = Typography;
 
   return (
     <div className={styles['login-container']}>
@@ -55,6 +67,7 @@ const LoginPage = () => {
             rules={[{ required: true, message: '密码为必填项' }]}
           />
           <div className={styles['login-button']}>
+            <Text link onClick={goToTrace}> 我要溯源？</Text>
             <Button htmlType="submit" type="secondary">登录</Button>
           </div>
         </Form>

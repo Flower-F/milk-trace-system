@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Spin } from '@douyinfe/semi-ui';
+import { Spin, Toast } from '@douyinfe/semi-ui';
 import { MessageList } from '@/components';
 import {
   FACTORY, RANCH, SELLER, STORAGE,
@@ -8,14 +8,16 @@ import { useAuthStore, useMessageStore } from '@/store';
 import styles from './style.module.scss';
 
 const MessagePage = () => {
-  const {
-    getMessage, loadMessage, loading,
-  } = useMessageStore();
+  const { getMessage, loadMessage, loading } = useMessageStore();
 
   const messageList = getMessage();
 
   useEffect(() => {
-    loadMessage();
+    try {
+      loadMessage();
+    } catch (error) {
+      Toast.error('加载列表失败');
+    }
   }, []);
 
   const { getRole } = useAuthStore();

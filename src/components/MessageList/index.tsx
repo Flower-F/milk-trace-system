@@ -6,9 +6,14 @@ import styles from './style.module.scss';
 type Props = {
   messageList: TStandardMessage[];
   shownArray?: boolean[];
+  showCode?: boolean;
 }
 
-const MessageList = ({ messageList, shownArray = new Array(4).fill(true) }: Props) => {
+const MessageList = ({
+  messageList,
+  showCode = true,
+  shownArray = new Array(4).fill(true),
+}: Props) => {
   const { Paragraph } = Typography;
 
   return (
@@ -17,10 +22,14 @@ const MessageList = ({ messageList, shownArray = new Array(4).fill(true) }: Prop
         ranch, factory, storage, seller, code, id,
       }) => (
         <div className={styles.block} key={id}>
-          <Paragraph className={styles.top} copyable={!!code}>
-            溯源码：
-            {code || '暂无溯源码'}
-          </Paragraph>
+          {
+            showCode && (
+            <Paragraph className={styles.top} copyable={!!code}>
+              溯源码：
+              {code || '暂无溯源码'}
+            </Paragraph>
+            )
+          }
           <div className={styles.bottom}>
             <MessageItem data={ranch} title="牧场" shown={shownArray[0]} formDataList={formData.ranchFormData} code={code} />
             <MessageItem data={factory} title="加工厂" shown={shownArray[1]} formDataList={formData.factoryFormData} code={code} />

@@ -13,16 +13,25 @@ const SettingPage = () => {
   const { logoutAction } = useAuthStore();
 
   const logout = useCallback(async () => {
-    await logoutAction();
+    try {
+      await logoutAction();
+      Toast.success('退出登录成功');
+    } catch (error) {
+      Toast.error('退出登录失败，请稍后重试');
+    }
   }, []);
 
   const [edit, setEdit] = useState(false);
 
   const handleSubmit = useCallback(async (values: Record<string, any>) => {
     if (values.password === values.checkPassword) {
-      await setPasswordApi(values.password);
-      setEdit(false);
-      Toast.success('修改成功');
+      try {
+        await setPasswordApi(values.password);
+        setEdit(false);
+        Toast.success('修改密码成功');
+      } catch (error) {
+        Toast.error('修改密码失败');
+      }
     } else {
       Toast.error('两次输入的密码不相同');
     }

@@ -1,5 +1,5 @@
 import { atom, useRecoilState } from 'recoil';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { getUserInfoApi, setUserInfoApi, TUserInfo } from '@/api';
 
 const initialUserInfo = atom<TUserInfo | null>({
@@ -10,6 +10,8 @@ const initialUserInfo = atom<TUserInfo | null>({
 export const useUserInfoStore = () => {
   const [userInfo, setRecoilUserInfo] = useRecoilState(initialUserInfo);
   const [loading, setLoading] = useState(false);
+
+  const getUserInfo = () => useMemo(() => userInfo, [userInfo]);
 
   const setUserInfo = async (userInfo: TUserInfo) => {
     setLoading(true);
@@ -26,9 +28,9 @@ export const useUserInfoStore = () => {
   };
 
   return {
-    userInfo,
     loading,
     setUserInfo,
+    getUserInfo,
     loadUserInfo,
   };
 };

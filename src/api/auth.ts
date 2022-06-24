@@ -21,7 +21,7 @@ export const loginApi = (username: string, password: string, role: TRole) => req
   method: 'POST',
 });
 
-export const logoutApi = () => request({
+export const logoutApi = () => request<void>({
   url: '/logout',
   method: 'POST',
 });

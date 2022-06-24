@@ -1,5 +1,10 @@
 import { request } from '@/utils';
-import { TRole } from './auth';
+
+type WithCompany<T> = T & {
+  company: string;
+  address: string;
+  phone: string;
+}
 
 export type TRanch = {
   // 批次号
@@ -44,11 +49,10 @@ export type TSeller = {
 }
 
 export type TMessage = {
-  ranch: TRanch | null;
-  factory: TFactory | null;
-  storage: TStorage | null;
-  seller: TSeller | null;
-  role: TRole;
+  ranch: WithCompany<TRanch> | null;
+  factory: WithCompany<TFactory> | null;
+  storage: WithCompany<TStorage> | null;
+  seller: WithCompany<TSeller> | null;
   code: string | null;
   id: string;
 }
@@ -61,7 +65,7 @@ export const getMessageApi = () => request<TMessage[]>({
 export const setMessageApi = (
   data: Record<string, any>,
   code: string | null,
-) => request({
+) => request<void>({
   url: '/setMessage',
   data: {
     message: JSON.stringify(data),

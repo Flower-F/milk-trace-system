@@ -56,6 +56,10 @@ const ModalForm = ({
   const renderForm = (formData: TForm) => {
     const properties = getProperties(formData);
 
+    if (formData.field === 'company' || formData.field === 'address' || formData.field === 'phone') {
+      return null;
+    }
+
     if (formData.type === 'number') {
       return (
         <InputNumber

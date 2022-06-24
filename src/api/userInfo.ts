@@ -11,7 +11,7 @@ export const getUserInfoApi = () => request<TUserInfo>({
   method: 'GET',
 });
 
-export const setUserInfoApi = (userInfo: TUserInfo) => request({
+export const setUserInfoApi = (userInfo: TUserInfo) => request<void>({
   url: '/setUserInfo',
   method: 'POST',
   data: userInfo,

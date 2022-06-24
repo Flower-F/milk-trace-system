@@ -1,7 +1,14 @@
+export const common = {
+  company: '公司名称',
+  phone: '联系方式',
+  address: '地址',
+};
+
 export const ranchMapping = {
   batchId: '批次编号',
   weight: '总净重',
   date: '产奶日期',
+  ...common,
 };
 
 export const factoryMapping = {
@@ -12,17 +19,20 @@ export const factoryMapping = {
   product: '产品名称',
   batchId: '批次编号',
   material: '产品成分',
+  ...common,
 };
 
 export const storageMapping = {
   driver: '运输负责人',
   batchId: '批次编号',
+  ...common,
 };
 
 export const sellerMapping = {
   price: '商品售价',
   date: '上架时间',
   batchId: '批次编号',
+  ...common,
 };
 
 type TType = 'normal' | 'date' | 'number';

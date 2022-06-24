@@ -20,6 +20,21 @@ describe('Message Test', () => {
           "label": "产奶日期",
           "type": "date",
         },
+        {
+          "field": "company",
+          "label": "公司名称",
+          "type": "normal",
+        },
+        {
+          "field": "phone",
+          "label": "联系方式",
+          "type": "normal",
+        },
+        {
+          "field": "address",
+          "label": "地址",
+          "type": "normal",
+        },
       ]
     `);
 
@@ -60,6 +75,21 @@ describe('Message Test', () => {
           "label": "产品成分",
           "type": "normal",
         },
+        {
+          "field": "company",
+          "label": "公司名称",
+          "type": "normal",
+        },
+        {
+          "field": "phone",
+          "label": "联系方式",
+          "type": "normal",
+        },
+        {
+          "field": "address",
+          "label": "地址",
+          "type": "normal",
+        },
       ]
     `);
 
@@ -73,6 +103,21 @@ describe('Message Test', () => {
         {
           "field": "batchId",
           "label": "批次编号",
+          "type": "normal",
+        },
+        {
+          "field": "company",
+          "label": "公司名称",
+          "type": "normal",
+        },
+        {
+          "field": "phone",
+          "label": "联系方式",
+          "type": "normal",
+        },
+        {
+          "field": "address",
+          "label": "地址",
           "type": "normal",
         },
       ]
@@ -93,6 +138,21 @@ describe('Message Test', () => {
         {
           "field": "batchId",
           "label": "批次编号",
+          "type": "normal",
+        },
+        {
+          "field": "company",
+          "label": "公司名称",
+          "type": "normal",
+        },
+        {
+          "field": "phone",
+          "label": "联系方式",
+          "type": "normal",
+        },
+        {
+          "field": "address",
+          "label": "地址",
           "type": "normal",
         },
       ]

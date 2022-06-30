@@ -6,7 +6,7 @@ import {
 } from '@/utils';
 import { ROLE, TOKEN } from '@/constants';
 
-const getRoleFromString = (role: string) :TRole => {
+export const getRoleFromString = (role: string) :TRole => {
   if (role === '1' || role === '2' || role === '3') {
     return Number(role) as TRole;
   }
@@ -18,7 +18,7 @@ const initialToken = atom({
   key: 'auth',
   default: {
     token: window.localStorage.getItem(TOKEN) || '',
-    role: getRoleFromString(window.localStorage.getItem(ROLE) || ''),
+    role: getRoleFromString(window.localStorage.getItem(ROLE) || '0'),
   },
 });
 

@@ -5,6 +5,8 @@ import {
   getMessageApi, setMessageApi, TMessage,
 } from '@/api';
 import { getStandardMessageList } from '@/utils';
+import { ROLE } from '../constants/storage';
+import { getRoleFromString } from './auth';
 
 const initialMessageList = atom<TMessage[] | null>({
   key: 'message',
@@ -19,14 +21,18 @@ export const useMessageStore = () => {
     setLoading(true);
     const messageList = await getMessageApi();
     messageList.forEach((message) => { message.id = shortid.generate(); });
-    messageList.push({
-      ranch: null,
-      factory: null,
-      seller: null,
-      storage: null,
-      code: null,
-      id: shortid.generate(),
-    });
+
+    const role = getRoleFromString(window.localStorage.getItem(ROLE) || '0');
+    if (role === 0) {
+      messageList.push({
+        ranch: null,
+        factory: null,
+        seller: null,
+        storage: null,
+        code: null,
+        id: shortid.generate(),
+      });
+    }
     setLoading(false);
     setRecoilMessageList(messageList);
   };

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/Flower-F/milk-trace-system/compare/v0.1.1...v0.1.2) (2022-06-30)
+
+
+### Bug Fixes🐛
+
+* 添加公司信息 ([c7f92c4](https://github.com/Flower-F/milk-trace-system/commit/c7f92c49a9418590ea7c5e0070d1d8f2d8a2f4df))
+* 修复MessageItem溯源码为空时的显示bug ([22226d1](https://github.com/Flower-F/milk-trace-system/commit/22226d18d8849b976c13ed36ba86175b2ba986b2))
+* 组件MessageList复制溯源码bug ([84b3296](https://github.com/Flower-F/milk-trace-system/commit/84b3296f3698d2d53ac763c22531c59d9c014ec4))
+
 ### [0.1.1](https://github.com/Flower-F/milk-trace-system/compare/v0.0.5...v0.1.1) (2022-06-22)
 
 

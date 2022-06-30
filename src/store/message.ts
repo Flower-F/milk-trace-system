@@ -19,6 +19,14 @@ export const useMessageStore = () => {
     setLoading(true);
     const messageList = await getMessageApi();
     messageList.forEach((message) => { message.id = shortid.generate(); });
+    messageList.push({
+      ranch: null,
+      factory: null,
+      seller: null,
+      storage: null,
+      code: null,
+      id: shortid.generate(),
+    });
     setLoading(false);
     setRecoilMessageList(messageList);
   };

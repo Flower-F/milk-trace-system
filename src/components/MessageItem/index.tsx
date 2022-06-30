@@ -50,13 +50,13 @@ const MessageItem = ({
             </Empty>
           )
       }
-      {code && formDataList && (
+      {formDataList && (
         <ModalForm
           handleCancel={handleCancel}
           handleOk={handleOk}
           visible={visible}
           title={title}
-          code={code}
+          code={code || null}
           formDataList={formDataList}
         />
       )}

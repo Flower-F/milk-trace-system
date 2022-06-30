@@ -24,10 +24,12 @@ const MessageList = ({
         <div className={styles.block} key={id}>
           {
             showCode && (
-            <Paragraph className={styles.top} copyable={!!code}>
-              溯源码：
-              {code || '暂无溯源码'}
-            </Paragraph>
+              <div className={styles.top}>
+                溯源码：
+                <Paragraph className={styles.paragraph} copyable={!!code}>
+                  {code || '暂无溯源码'}
+                </Paragraph>
+              </div>
             )
           }
           <div className={styles.bottom}>

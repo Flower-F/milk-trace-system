@@ -9,8 +9,11 @@
   border-radius: 5px;
 
   .top {
+    display: flex;
+    align-items: center;
     margin-bottom: 8px;
     margin-left: 6px;
+    font-size: 16px;
     line-height: 16px;
     color: #fff;
 
